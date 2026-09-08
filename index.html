@@ -954,13 +954,41 @@
   fileInput.addEventListener('change',function(e){importFile(e.target.files[0]);fileInput.value='';});
   tourOpen.addEventListener('click',function(){fileInput.click();});
 
-  ['dragover','dragenter'].forEach(function(ev){stage.addEventListener(ev,function(e){e.preventDefault();overlay.classList.add('dragging');});});
-  stage.addEventListener('dragleave',function(e){if(e.target===stage)overlay.classList.remove('dragging');});
+  ['dragover','dragenter'].forEach(function(ev){stage.addEventListener(ev,function(e){e.preventDefault();e.dataTransfer.dropEffect='copy';overlay.classList.add('dragging');});});
+  stage.addEventListener('dragleave',function(e){
+    if(e.target===stage||!stage.contains(e.relatedTarget))overlay.classList.remove('dragging');
+  });
   stage.addEventListener('drop',function(e){
     e.preventDefault();
     overlay.classList.remove('dragging');
-    importFile(e.dataTransfer.files&&e.dataTransfer.files[0]);
+    var file=null;
+    if(e.dataTransfer.files&&e.dataTransfer.files.length)file=e.dataTransfer.files[0];
+    if(!file&&e.dataTransfer.items){
+      for(var i=0;i<e.dataTransfer.items.length;i++){
+        var it=e.dataTransfer.items[i];
+        if(it.kind==='file'){file=it.getAsFile();break;}
+        if(it.type==='text/uri-list'){
+          var u=e.dataTransfer.getData('text/uri-list').split(/\r?\n/)[0];
+          if(u){loadExternal(u);return;}
+        }
+        if(it.type==='text/plain'){
+          var u2=e.dataTransfer.getData('text/plain');
+          if(/\.(png|jpe?g|webp)$/i.test(u2)){loadExternal(u2);return;}
+        }
+      }
+    }
+    if(file)importFile(file);
+    else errorMsg('Déposez un fichier image (JPG/PNG) directement sur le viewer');
   });
+
+  function loadExternal(u){
+    overlay.querySelector('h3').textContent='Chargement…';
+    overlay.classList.remove('hidden-tour');
+    var im=new Image();
+    im.onload=function(){setPhoto(im);};
+    im.onerror=function(){errorMsg('Impossible de charger cette image (origine bloquée)');};
+    im.src=u;
+  }
 
   function resize(){
     canvas.width=stage.clientWidth;
