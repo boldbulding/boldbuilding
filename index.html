@@ -579,7 +579,7 @@
   var pURot=gl.getUniformLocation(pProg,'r');
   var pTex=gl.createTexture();
   gl.bindTexture(gl.TEXTURE_2D,pTex);
-  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.REPEAT);
+  gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);
   gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);
   gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
@@ -873,10 +873,20 @@
   function anim(){draw();requestAnimationFrame(anim);}
 
   /* ==================== IMPORT ==================== */
+  var maxSize=Math.min(gl.getParameter(gl.MAX_TEXTURE_SIZE)||4096,8192);
   function setPhoto(im){
+    var src=im;
+    if(im.width>maxSize||im.height>maxSize){
+      var sc=Math.min(maxSize/im.width,maxSize/im.height);
+      var cv=document.createElement('canvas');
+      cv.width=Math.floor(im.width*sc);
+      cv.height=Math.floor(im.height*sc);
+      cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
+      src=cv;
+    }
     gl.bindTexture(gl.TEXTURE_2D,pTex);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
-    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,im);
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,src);
     photoActive=true;modelActive=false;
     overlay.classList.add('hidden-tour');
     stage.classList.add('loaded');
