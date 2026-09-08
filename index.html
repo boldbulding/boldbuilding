@@ -149,9 +149,9 @@
 
   /* Gallery */
   #gallery{background:var(--color-surface-2)}
-  .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:2rem}
-  @media(min-width:768px){.gallery-grid{grid-template-columns:repeat(3,1fr);gap:.8rem}}
-  .g-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:.3rem;cursor:pointer;background:#e9e4dc}
+  .gallery-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
+  @media(min-width:768px){.gallery-grid{gap:.8rem}}
+  .g-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:.3rem;cursor:pointer;background:#e9e4dc;flex:1 1 260px;max-width:480px}
   .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-soft)}
   .g-item:hover img{transform:scale(1.06)}
   .g-item .ov{position:absolute;inset:0;background:rgba(38,42,59,0);transition:background .4s;display:grid;place-items:center}
