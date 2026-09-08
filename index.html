@@ -294,9 +294,14 @@
   <section id="virtual-tour" class="section">
     <div class="container-page">
       <h2 class="section-title">Visite virtuelle 360°</h2>
-      <div class="tour-stage" id="tour-stage">
-        <div id="tour-canvas"></div>
-        <div class="tour-controls"><span>Glissez pour pivoter à 360°</span></div>
+      <input type="file" id="tour-file" accept="image/*" hidden>
+        <label class="tour-replace" id="tour-replace">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+          Importer une photo 360°
+        </label>
+        <div id="tour-overlay" class="hidden-tour">
+          <h3>Chargement…</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -525,11 +530,18 @@
 (function(){
   var stage=document.getElementById('tour-stage');
   var canvasWrap=document.getElementById('tour-canvas');
+  var overlay=document.getElementById('tour-overlay');
+  var fileInput=document.getElementById('tour-file');
+  var replaceBtn=document.getElementById('tour-replace');
 
   var canvas=document.createElement('canvas');
   canvasWrap.appendChild(canvas);
   var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
-  if(!gl)return;
+  if(!gl){
+    overlay.classList.remove('hidden-tour');
+    overlay.querySelector('h3').textContent='WebGL indisponible sur ce navigateur';
+    return;
+  }
   var extUint=(typeof(gl.OES_element_index_uint)!=='undefined')?null:gl.getExtension('OES_element_index_uint');
 
   function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
@@ -853,11 +865,15 @@
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
     gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,im);
     photoActive=true;modelActive=false;
+    overlay.classList.add('hidden-tour');
     stage.classList.add('loaded');
     draw();
   }
 
-  function errorMsg(){};
+  function errorMsg(txt){
+    overlay.querySelector('h3').textContent=txt;
+    overlay.classList.remove('hidden-tour');
+  }
 
   function loadUrl(url){
     var im=new Image();
@@ -871,6 +887,8 @@
     var name=(file.name||'').toLowerCase();
     var isImg=file.type&&file.type.indexOf('image/')===0;
     if(isImg){
+      overlay.querySelector('h3').textContent='Chargement…';
+      overlay.classList.remove('hidden-tour');
       var url=URL.createObjectURL(file);
       var im=new Image();
       im.onload=function(){setPhoto(im);};
@@ -921,6 +939,17 @@
     e.preventDefault();
     if(modelActive){maDist*=Math.exp(e.deltaY*0.001);if(maDist<0.4)maDist=0.4;if(maDist>60)maDist=60;draw();}
   },{passive:false});
+
+  fileInput.addEventListener('change',function(e){importFile(e.target.files[0]);fileInput.value='';});
+  replaceBtn.addEventListener('click',function(){fileInput.click();});
+
+  ['dragover','dragenter'].forEach(function(ev){stage.addEventListener(ev,function(e){e.preventDefault();overlay.classList.add('dragging');});});
+  stage.addEventListener('dragleave',function(e){if(e.target===stage)overlay.classList.remove('dragging');});
+  stage.addEventListener('drop',function(e){
+    e.preventDefault();
+    overlay.classList.remove('dragging');
+    importFile(e.dataTransfer.files&&e.dataTransfer.files[0]);
+  });
 
   function resize(){
     canvas.width=stage.clientWidth;
