@@ -107,6 +107,10 @@
   #tour-overlay p.hint{font-size:.85rem;color:#ffffff99;max-width:26rem;line-height:1.5}
   #tour-overlay button{pointer-events:auto;cursor:pointer;margin-top:.4rem;background:var(--color-brand-gold);color:#fff;border:0;font-size:.9rem;font-weight:600;padding:.7rem 1.4rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 10px 26px -8px #00000088}
   #tour-overlay button:hover{background:#c79b57;transform:translateY(-2px)}
+  .tour-actions{margin-top:1.2rem;text-align:center}
+  .tour-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:var(--color-brand-gold);color:#fff;border:0;font-size:.9rem;font-weight:600;padding:.75rem 1.6rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 10px 26px -8px #00000066}
+  .tour-btn:hover{background:#c79b57;transform:translateY(-2px)}
+  .tour-btn svg{width:1rem;height:1rem}
   .tour-controls{position:absolute;left:0;right:0;bottom:.9rem;z-index:2;display:flex;justify-content:center;pointer-events:none;opacity:0;transition:opacity .4s}
   .tour-stage.loaded .tour-controls{opacity:1}
   .tour-controls span{pointer-events:auto;background:#ffffff14;color:#fff;font-size:.75rem;letter-spacing:.08em;padding:.45rem .9rem;border-radius:999px;border:1px solid #ffffff26;backdrop-filter:blur(6px)}
@@ -299,13 +303,16 @@
       <div class="tour-stage" id="tour-stage">
         <div id="tour-canvas"></div>
         <div class="tour-controls"><span>Glissez pour pivoter à 360°</span></div>
-        <input type="file" id="tour-file" accept="image/*" hidden>
-        <div id="tour-overlay">
-          <svg class="ico" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          <h3>Importez votre photo 360°</h3>
-          <p class="hint">Choisissez un fichier JPG ou PNG : elle s'affichera ici et se pivote à 360°.</p>
-          <button type="button" id="tour-overlay-btn">Choisir une photo</button>
+        <div id="tour-overlay" class="hidden-tour">
+          <h3>Chargement…</h3>
         </div>
+      </div>
+      <div class="tour-actions">
+        <input type="file" id="tour-file" accept="image/*" hidden>
+        <button type="button" class="tour-btn" id="tour-open">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
+          Importer une photo 360°
+        </button>
       </div>
     </div>
   </section>
@@ -536,7 +543,7 @@
   var canvasWrap=document.getElementById('tour-canvas');
   var overlay=document.getElementById('tour-overlay');
   var fileInput=document.getElementById('tour-file');
-  var overlayBtn=document.getElementById('tour-overlay-btn');
+  var tourOpen=document.getElementById('tour-open');
 
   var canvas=document.createElement('canvas');
   canvasWrap.appendChild(canvas);
@@ -945,7 +952,7 @@
   },{passive:false});
 
   fileInput.addEventListener('change',function(e){importFile(e.target.files[0]);fileInput.value='';});
-  overlayBtn.addEventListener('click',function(){fileInput.click();});
+  tourOpen.addEventListener('click',function(){fileInput.click();});
 
   ['dragover','dragenter'].forEach(function(ev){stage.addEventListener(ev,function(e){e.preventDefault();overlay.classList.add('dragging');});});
   stage.addEventListener('dragleave',function(e){if(e.target===stage)overlay.classList.remove('dragging');});
@@ -962,6 +969,7 @@
   }
   window.addEventListener('resize',function(){resize();});
   resize();
+  loadUrl('images/default-360.png');
   draw();
   anim();
 })();
