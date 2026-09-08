@@ -111,6 +111,7 @@
   .tour-btn{display:inline-flex;align-items:center;gap:.5rem;cursor:pointer;background:var(--color-brand-gold);color:#fff;border:0;font-size:.9rem;font-weight:600;padding:.75rem 1.6rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 10px 26px -8px #00000066}
   .tour-btn:hover{background:#c79b57;transform:translateY(-2px)}
   .tour-btn svg{width:1rem;height:1rem}
+  .tour-note{margin-top:.8rem;text-align:center;font-size:.78rem;color:var(--color-muted-foreground)}
   .tour-controls{position:absolute;left:0;right:0;bottom:.9rem;z-index:2;display:flex;justify-content:center;pointer-events:none;opacity:0;transition:opacity .4s}
   .tour-stage.loaded .tour-controls{opacity:1}
   .tour-controls span{pointer-events:auto;background:#ffffff14;color:#fff;font-size:.75rem;letter-spacing:.08em;padding:.45rem .9rem;border-radius:999px;border:1px solid #ffffff26;backdrop-filter:blur(6px)}
@@ -314,6 +315,7 @@
           Importer une photo 360°
         </button>
       </div>
+      <p class="tour-note">Format attendu : panorama 360° équirectangulaire, largeur = 2 × hauteur (ex. 4000 × 2000).</p>
     </div>
   </section>
 
@@ -902,7 +904,14 @@
       overlay.classList.remove('hidden-tour');
       var url=URL.createObjectURL(file);
       var im=new Image();
-      im.onload=function(){setPhoto(im);};
+      im.onload=function(){
+        var ratio=im.width/Math.max(1,im.height);
+        if(ratio<1.7||ratio>2.3){
+          errorMsg('Ce n\'est pas une photo 360° — il faut un panorama équirectangulaire (largeur = 2 × hauteur, ex. 4000×2000), pris avec une caméra 360° ou un mode panoramique. Celle-ci : '+im.width+'×'+im.height);
+          return;
+        }
+        setPhoto(im);
+      };
       im.onerror=function(){errorMsg('Image invalide — utilisez JPG ou PNG');};
       im.src=url;
       return;
@@ -995,7 +1004,7 @@
   }
   window.addEventListener('resize',function(){resize();});
   resize();
-  loadUrl('images/default-360.png');
+  loadUrl('images/demo-360.jpg');
   draw();
   anim();
 })();
