@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Bold Building sarl — Construction & Immobilier</title>
-<meta name="description" content="Bold Building sarl — Une nouvelle vision de la construction. Architecture contemporaine, services premium et cadre de vie serein.">
+<meta name="description" content="Bold Building sarl — Construction, rénovation et aménagement. De la conception aux finitions, construisons aujourd'hui les espaces de demain. Demandez votre devis gratuit.">
 <meta name="theme-color" content="#262a3b">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,6 +84,9 @@
   @media(min-width:768px){.hero .eyebrow{font-size:.875rem}}
   .hero h1{font-family:"Cormorant Garamond",Georgia,serif;font-size:clamp(2.4rem,6vw,4.5rem);font-weight:500;margin-top:.75rem;line-height:1.05}
   .hero p.tag{max-width:34rem;margin:1.1rem auto 0;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:1.15rem;color:#ffffffc9}
+  .hero p.hero-sub{max-width:38rem;margin:.8rem auto 0;font-size:.95rem;line-height:1.6;color:#ffffffd4}
+  .hero .btn-wa{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-size:.9rem;font-weight:600;padding:.85rem 1.6rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 10px 30px -8px #00000077}
+  .hero .btn-wa:hover{background:#1ebd57;transform:translateY(-2px)}
   .hero .ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem}
   .hero .btn-gold{display:inline-flex;align-items:center;gap:.5rem;background:var(--color-brand-gold);color:#fff;font-size:.9rem;font-weight:500;padding:.8rem 1.6rem;border-radius:999px;transition:background .3s var(--ease-soft);box-shadow:0 10px 30px -8px #00000077}
   .hero .btn-gold:hover{background:var(--color-brand-gold-soft)}
@@ -133,6 +136,17 @@
   .spec b{display:block;font-weight:600;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.15rem;color:var(--color-brand-ink)}
   .spec span{display:block;font-size:.85rem;color:var(--color-muted-foreground);line-height:1.35}
 
+  /* Why us */
+  .alt-bg{background:var(--color-surface-2)}
+  .why-grid{display:grid;gap:.25rem 2.5rem;grid-template-columns:1fr;margin-top:2rem}
+  @media(min-width:640px){.why-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.why-grid{grid-template-columns:1fr 1fr 1fr}}
+  .why-item{display:flex;align-items:flex-start;gap:1rem;padding-block:1.1rem;border-bottom:1px solid var(--color-border)}
+  .why-item .ic{width:2.4rem;height:2.4rem;flex:none;display:grid;place-items:center;border-radius:999px;background:var(--color-brand-gold);color:#fff}
+  .why-item .ic svg{width:1.2rem;height:1.2rem}
+  .why-item b{display:block;font-weight:600;font-family:"Cormorant Garamond",Georgia,serif;font-size:1.15rem;color:var(--color-brand-ink)}
+  .why-item span{display:block;font-size:.85rem;color:var(--color-muted-foreground);line-height:1.35}
+
   /* Gallery */
   #gallery{background:var(--color-surface-2)}
   .gallery-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:2rem}
@@ -147,6 +161,7 @@
   .g-add{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;border:1.5px dashed var(--color-brand-gold);color:var(--color-brand-gold-text);border-radius:.3rem;aspect-ratio:4/3;text-align:center;padding:1rem}
   .g-add svg{width:1.8rem;height:1.8rem}
   .g-add small{font-size:.78rem;line-height:1.4;color:var(--color-muted-foreground)}
+  .gallery-note{margin-top:1rem;text-align:center;color:var(--color-muted-foreground);font-size:.85rem}
 
   /* Contact */
   #contact{background:var(--color-brand-deep);color:#fff}
@@ -161,6 +176,9 @@
   .c-card a{font-size:.95rem;color:#ffffffc4;letter-spacing:.02em}
   .c-card a:hover{color:var(--color-brand-gold-soft)}
   .c-card span.desc{font-size:.8rem;color:#ffffff8c}
+  .contact-cta{display:flex;align-items:center;justify-content:center;gap:.7rem;flex-wrap:wrap;margin:2.5rem auto 0;max-width:38rem;background:#25D366;color:#fff;font-size:1.05rem;font-weight:600;padding:1rem 2rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 14px 34px -10px #00000088}
+  .contact-cta:hover{background:#1ebd57;transform:translateY(-2px)}
+  .contact-cta span{font-size:.75rem;font-weight:400;color:#ffffffd6}
 
   /* Footer */
   footer{background:var(--color-brand-deep);color:#ffffffd9;border-top:1px solid #ffffff14}
@@ -233,6 +251,7 @@
       <a href="#virtual-tour">Visite 360°</a>
       <a href="#services">Services</a>
       <a href="#gallery">Réalisations</a>
+      <a href="#why">Pourquoi ?</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-right">
@@ -254,15 +273,19 @@
     <img class="bg" src="images/hero.png" alt="Bold Building sarl — Réalisation">
     <div class="mask"></div>
     <div class="hero-text">
-      <p class="eyebrow">Architecture contemporaine</p>
+      <p class="eyebrow">Construction • Rénovation • Aménagement</p>
       <h1>Bold Building sarl</h1>
-      <p class="tag">La construction de vos ambitions, pensée dans les moindres détails.</p>
+      <p class="tag">Construire aujourd'hui les espaces de demain.</p>
+      <p class="hero-sub">Bold Building accompagne vos projets de construction, rénovation et aménagement, de la conception aux finitions.</p>
       <div class="ctas">
-        <a class="btn-gold" href="tel:+212644963171">
+        <a class="btn-wa" href="https://wa.me/212644963171?text=Bonjour%20Bold%20Building%2C%20je%20souhaite%20demander%20un%20devis" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Demander un devis
+        </a>
+        <a class="btn-ghost" href="tel:+212644963171">
           <svg viewBox="0 0 256 256" width="16" height="16" fill="currentColor"><path d="M222.37 158.46l-47.11-21.11-.13-.06a16 16 0 0 0-15.17 1.4 8.12 8.12 0 0 0-.75.56L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.23.39-.48.57-.73a16 16 0 0 0 1.32-15.06l-.21-.42L97.54 33.64a16 16 0 0 0-16.5-8.56A56.18 56.18 0 0 0 38.66 80c0 71.55 65.79 137.34 137.34 137.34a56.18 56.18 0 0 0 54.92-42.38 16 16 0 0 0-8.55-16.5Z"/></svg>
           Nous appeler
         </a>
-        <a class="btn-ghost" href="#virtual-tour">Voir la visite 360°</a>
       </div>
     </div>
   </section>
@@ -274,16 +297,6 @@
       <div class="tour-stage" id="tour-stage">
         <div id="tour-canvas"></div>
         <div class="tour-controls"><span>Glissez pour pivoter à 360°</span></div>
-        <input type="file" id="tour-file" accept="image/*,.glb,.gltf,.skp" hidden>
-        <label class="tour-replace" id="tour-replace">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg>
-          Importer (360° / 3D)
-        </label>
-        <div id="tour-overlay" class="hidden-tour">
-          <svg class="ico" width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
-          <h3>Chargement…</h3>
-          <p class="hint">Importez une photo panoramique 360° (JPG/PNG) ou un modèle 3D (.glb) pour le faire pivoter à 360°.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -294,8 +307,8 @@
       <div class="overview-text reveal">
         <p class="eyebrow">Bold Building sarl</p>
         <h2>Construire l'excellence, bâtir la confiance</h2>
-        <p>Bold Building sarl est une société spécialisée dans la construction, la rénovation et l'aménagement de biens d'exception. Nous concevons chaque projet avec exigence, du gros œuvre aux finitions, pour offrir un cadre de vie équilibré alliant confort, élégance et fonctionnalité.</p>
-        <p>Chaque espace est pensé avec cohérence pour assurer une circulation fluide et un confort optimal. Matériaux nobles, savoir-faire technique et respect des délais font de Bold Building sarl votre partenaire de confiance pour tous vos projets immobiliers et de construction.</p>
+        <p>Bold Building sarl est une entreprise de construction, de rénovation et d'aménagement. Nous conduisons vos projets avec rigueur, du gros œuvre aux finitions, pour un résultat soigné, durable et conforme au planning.</p>
+        <p>Suivi personnalisé, interlocuteur dédié et équipe qualifiée sont au cœur de notre engagement sur chaque chantier.</p>
       </div>
       <figure class="overview-media reveal">
         <img src="images/hero.png" alt="Realisation Bold Building sarl" data-lightbox="images/hero.png">
@@ -319,33 +332,66 @@
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/><path d="M12 7v5l3 2"/></svg></span>
-          <div><b>Rénovation</b><span>Réhabilitation et rafraîchissement complet</span></div>
+          <div><b>Rénovation</b><span>Réhabilitation complète et rafraîchissement</span></div>
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M6.6 5.6l2.1 2.1M3 12h3M17.4 5.6l-2.1 2.1M21 12h-3M6.6 18.4l2.1-2.1M12 21v-3M17.4 18.4l-2.1-2.1"/></svg></span>
-          <div><b>Gros œuvre</b><span>Maçonnerie, béton et structure porteuse</span></div>
+          <div><b>Gros œuvre</b><span>Structure béton, maçonnerie et fondations</span></div>
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 6 4-4 4 4M12 2v10M8 12h8M12 16l4-4M8 14l-2 6M16 14l2 6"/></svg></span>
-          <div><b>Aménagement</b><span>Agencement, cloisons et finitions</span></div>
+          <div><b>Aménagement intérieur</b><span>Agencement et finitions intérieures sur mesure</span></div>
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h16M4 14h16M2 6h20M2 18h20M6 6v12M18 6v12"/></svg></span>
-          <div><b>Plâtrerie & Peinture</b><span>Revêtements et décoration intérieure</span></div>
+          <div><b>Second œuvre</b><span>Cloisons, plâtrerie, isolation et finitions</span></div>
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"/><path d="M9 18h6M10 22h4"/></svg></span>
-          <div><b>Électricité</b><span>Installation électrique aux normes</span></div>
+          <div><b>Électricité</b><span>Installation électrique et mise aux normes</span></div>
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg></span>
-          <div><b>Plomberie</b><span>Sanitaires, chauffage et fluides</span></div>
+          <div><b>Plomberie</b><span>Sanitaires, fluides et chauffage</span></div>
         </li>
         <li class="spec reveal">
           <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><path d="M7 8h10M7 12h10M7 16h6"/></svg></span>
-          <div><b>Suivi de chantier</b><span>Maîtrise d'œuvre et coordination</span></div>
+          <div><b>Suivi et gestion de chantier</b><span>Coordination, qualité et respect des délais</span></div>
         </li>
       </ul>
+    </div>
+  </section>
+
+  <!-- POURQUOI NOUS CHOISIR -->
+  <section id="why" class="section alt-bg">
+    <div class="container-page">
+      <h2 class="section-title">Pourquoi Bold Building ?</h2>
+      <div class="why-grid">
+        <div class="why-item reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
+          <div><b>Qualité et précision</b><span>Exécution soignée, conforme aux plans et aux normes.</span></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
+          <div><b>Respect des délais</b><span>Un planning maîtrisé, un chantier livré à temps.</span></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <div><b>Suivi personnalisé</b><span>Un interlocuteur dédié du début à la fin du projet.</span></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
+          <div><b>Équipe qualifiée</b><span>Des professionnels expérimentés sur chaque corps de métier.</span></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
+          <div><b>Matériaux de qualité</b><span>Des fournisseurs fiables pour un résultat durable.</span></div>
+        </div>
+        <div class="why-item reveal">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
+          <div><b>Accompagnement de A à Z</b><span>De la conception aux finitions, nous restons à vos côtés.</span></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -355,23 +401,14 @@
       <h2 class="section-title">Réalisations</h2>
       <div class="gallery-grid">
         <div class="g-item reveal">
-          <img src="images/hero.png" alt="Realisation Bold Building — 1" data-lightbox="images/hero.png">
+          <img src="images/hero.png" alt="Réalisation Bold Building" data-lightbox="images/hero.png">
           <div class="ov"><span class="pill">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
             Voir
           </span></div>
         </div>
-        <div class="g-add reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
-          <div>Ajoutez vos photos</div>
-          <small>Placez vos images dans le dossier <b>images/</b> et reliez-les dans cette galerie.</small>
-        </div>
-        <div class="g-add reveal">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="5" y2="19"/><line x1="5" x2="19" y1="12" y2="12"/></svg>
-          <div>Ajoutez vos photos</div>
-          <small>Vos chantiers, façades et intérieurs prendront place ici.</small>
-        </div>
       </div>
+      <p class="gallery-note">Photos de nos derniers chantiers à venir.</p>
     </div>
   </section>
 
@@ -379,6 +416,11 @@
   <section id="contact" class="section">
     <div class="container-page">
       <h2 class="section-title">Contactez-nous</h2>
+      <a class="contact-cta reveal" href="https://wa.me/212644963171?text=Bonjour%20Bold%20Building%2C%20je%20souhaite%20demander%20un%20devis" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+        Demander un devis sur WhatsApp
+        <span>Étude gratuite • Réponse rapide</span>
+      </a>
       <div class="contact-grid">
         <a class="c-card reveal" href="tel:+212644963171">
           <span class="ic"><svg viewBox="0 0 256 256" fill="currentColor"><path d="M222.37 158.46l-47.11-21.11-.13-.06a16 16 0 0 0-15.17 1.4 8.12 8.12 0 0 0-.75.56L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.23.39-.48.57-.73a16 16 0 0 0 1.32-15.06l-.21-.42L97.54 33.64a16 16 0 0 0-16.5-8.56A56.18 56.18 0 0 0 38.66 80c0 71.55 65.79 137.34 137.34 137.34a56.18 56.18 0 0 0 54.92-42.38 16 16 0 0 0-8.55-16.5Z"/></svg></span>
@@ -417,6 +459,7 @@
         <li><a href="#about"><span class="dash"></span>À Propos</a></li>
         <li><a href="#services"><span class="dash"></span>Services</a></li>
         <li><a href="#gallery"><span class="dash"></span>Réalisations</a></li>
+        <li><a href="#why"><span class="dash"></span>Pourquoi nous choisir</a></li>
         <li><a href="#contact"><span class="dash"></span>Contact</a></li>
       </ul>
     </div>
@@ -428,7 +471,7 @@
         <li><a href="https://www.instagram.com/boldbuilding.ma/" target="_blank" rel="noopener"><span class="dash"></span>@boldbuilding.ma</a></li>
         <li><a href="mailto:contact@boldbuilding.ma"><span class="dash"></span>contact@boldbuilding.ma</a></li>
       </ul>
-      <p>Bold Building sarl — société de construction et d'aménagement. Architecture contemporaine, savoir-faire technique et cadre de vie serein.</p>
+      <p>Bold Building sarl — construction, rénovation et aménagement, de la conception aux finitions.</p>
     </div>
     <div class="f-col">
       <h4>Suivez-nous</h4>
@@ -482,18 +525,11 @@
 (function(){
   var stage=document.getElementById('tour-stage');
   var canvasWrap=document.getElementById('tour-canvas');
-  var overlay=document.getElementById('tour-overlay');
-  var fileInput=document.getElementById('tour-file');
-  var replaceBtn=document.getElementById('tour-replace');
 
   var canvas=document.createElement('canvas');
   canvasWrap.appendChild(canvas);
   var gl=canvas.getContext('webgl')||canvas.getContext('experimental-webgl');
-  if(!gl){
-    overlay.classList.remove('hidden-tour');
-    overlay.querySelector('h3').textContent='WebGL indisponible sur ce navigateur';
-    return;
-  }
+  if(!gl)return;
   var extUint=(typeof(gl.OES_element_index_uint)!=='undefined')?null:gl.getExtension('OES_element_index_uint');
 
   function sh(type,src){var s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s;}
@@ -746,7 +782,6 @@
       model=mdl;
       modelActive=true;photoActive=false;
       maYaw=-0.6;maPitch=0.15;maDist=3;
-      overlay.classList.add('hidden-tour');
       stage.classList.add('loaded');
       draw();
     };
@@ -818,15 +853,11 @@
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
     gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,im);
     photoActive=true;modelActive=false;
-    overlay.classList.add('hidden-tour');
     stage.classList.add('loaded');
     draw();
   }
 
-  function errorMsg(txt){
-    overlay.querySelector('h3').textContent=txt;
-    overlay.classList.remove('hidden-tour');
-  }
+  function errorMsg(){};
 
   function loadUrl(url){
     var im=new Image();
@@ -890,17 +921,6 @@
     e.preventDefault();
     if(modelActive){maDist*=Math.exp(e.deltaY*0.001);if(maDist<0.4)maDist=0.4;if(maDist>60)maDist=60;draw();}
   },{passive:false});
-
-  fileInput.addEventListener('change',function(e){importFile(e.target.files[0]);fileInput.value='';});
-  replaceBtn.addEventListener('click',function(){fileInput.click();});
-
-  ['dragover','dragenter'].forEach(function(ev){stage.addEventListener(ev,function(e){e.preventDefault();overlay.classList.add('dragging');});});
-  stage.addEventListener('dragleave',function(e){if(e.target===stage)overlay.classList.remove('dragging');});
-  stage.addEventListener('drop',function(e){
-    e.preventDefault();
-    overlay.classList.remove('dragging');
-    importFile(e.dataTransfer.files&&e.dataTransfer.files[0]);
-  });
 
   function resize(){
     canvas.width=stage.clientWidth;
