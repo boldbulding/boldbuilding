@@ -875,17 +875,27 @@
   /* ==================== IMPORT ==================== */
   function setPhoto(im){
     var max=Math.min(gl.getParameter(gl.MAX_TEXTURE_SIZE)||4096,8192);
-    var w=im.width||0,h=im.height||0;
-    if(!w)w=canvas.width;
-    if(!h)h=canvas.height;
-    var sc=Math.min(1,max/w,max/h);
-    var cv=document.createElement('canvas');
-    cv.width=Math.max(1,Math.floor(w*sc));
-    cv.height=Math.max(1,Math.floor(h*sc));
-    cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
+    var w=im.width||canvas.width,h=im.height||canvas.height;
+    var sw=Math.floor(Math.min(w,max));
+    var sh=Math.floor(Math.min(h,max));
+    function bake(){
+      var cv=document.createElement('canvas');
+      cv.width=Math.max(1,sw);cv.height=Math.max(1,sh);
+      cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);
+      return cv;
+    }
     gl.bindTexture(gl.TEXTURE_2D,pTex);
     gl.pixelStorei(gl.UNPACK_FLIP_Y_WEBGL,false);
-    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,cv);
+    function push(cv){
+      gl.getError();
+      try{gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,gl.RGBA,gl.UNSIGNED_BYTE,cv);}catch(e){return false;}
+      return gl.getError()===gl.NO_ERROR;
+    }
+    for(;;){
+      if(push(bake()))break;
+      if(sh<=256)break;
+      sw=Math.floor(sw/2);sh=Math.floor(sh/2);
+    }
     photoActive=true;modelActive=false;
     overlay.classList.add('hidden-tour');
     stage.classList.add('loaded');
