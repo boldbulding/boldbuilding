@@ -831,7 +831,7 @@
   function loadUrl(url){
     var im=new Image();
     im.onload=function(){setPhoto(im);};
-    im.onerror=function(){errorMsg('Impossible de charger l\'image de démonstration');};
+    im.onerror=function(){errorMsg('Impossible de charger l\'image par défaut');};
     im.src=url;
   }
 
@@ -909,7 +909,7 @@
   }
   window.addEventListener('resize',function(){resize();});
   resize();
-  loadUrl('images/demo-kitchen.jpg');
+  loadUrl('images/default-360.png');
   draw();
   anim();
 })();
