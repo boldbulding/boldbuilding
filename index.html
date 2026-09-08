@@ -954,39 +954,37 @@
   fileInput.addEventListener('change',function(e){importFile(e.target.files[0]);fileInput.value='';});
   tourOpen.addEventListener('click',function(){fileInput.click();});
 
-  ['dragover','dragenter'].forEach(function(ev){stage.addEventListener(ev,function(e){e.preventDefault();e.dataTransfer.dropEffect='copy';overlay.classList.add('dragging');});});
-  stage.addEventListener('dragleave',function(e){
-    if(e.target===stage||!stage.contains(e.relatedTarget))overlay.classList.remove('dragging');
+  var tourSection=document.getElementById('virtual-tour');
+  function hasDragFiles(dt){var t=dt.types;if(!t)return false;for(var i=0;i<t.length;i++){if(t[i]==='Files')return true;}return false;}
+  ['dragover','dragenter'].forEach(function(ev){tourSection.addEventListener(ev,function(e){if(!hasDragFiles(e.dataTransfer))return;e.preventDefault();e.dataTransfer.dropEffect='copy';overlay.classList.add('dragging');});});
+  tourSection.addEventListener('dragleave',function(e){
+    if(e.target===tourSection||!tourSection.contains(e.relatedTarget))overlay.classList.remove('dragging');
   });
-  stage.addEventListener('drop',function(e){
+  tourSection.addEventListener('drop',function(e){
     e.preventDefault();
     overlay.classList.remove('dragging');
-    var file=null;
+    if(!hasDragFiles(e.dataTransfer))return;
+    var file=null,uri=null;
     if(e.dataTransfer.files&&e.dataTransfer.files.length)file=e.dataTransfer.files[0];
-    if(!file&&e.dataTransfer.items){
+    if(e.dataTransfer.items){
       for(var i=0;i<e.dataTransfer.items.length;i++){
         var it=e.dataTransfer.items[i];
-        if(it.kind==='file'){file=it.getAsFile();break;}
-        if(it.type==='text/uri-list'){
-          var u=e.dataTransfer.getData('text/uri-list').split(/\r?\n/)[0];
-          if(u){loadExternal(u);return;}
-        }
-        if(it.type==='text/plain'){
-          var u2=e.dataTransfer.getData('text/plain');
-          if(/\.(png|jpe?g|webp)$/i.test(u2)){loadExternal(u2);return;}
-        }
+        if(it.kind==='file'){if(!file)file=it.getAsFile();}
+        else if(it.type==='text/uri-list'){uri=e.dataTransfer.getData('text/uri-list').split(/\r?\n/)[0];}
       }
     }
     if(file)importFile(file);
-    else errorMsg('Déposez un fichier image (JPG/PNG) directement sur le viewer');
+    else if(uri)loadExternal(uri);
+    else errorMsg('Déposez un fichier image (JPG/PNG) directement sur la visite');
   });
 
   function loadExternal(u){
     overlay.querySelector('h3').textContent='Chargement…';
     overlay.classList.remove('hidden-tour');
     var im=new Image();
+    im.crossOrigin='anonymous';
     im.onload=function(){setPhoto(im);};
-    im.onerror=function(){errorMsg('Impossible de charger cette image (origine bloquée)');};
+    im.onerror=function(){errorMsg('Photo de site web bloquée par le navigateur — enregistrez-la d\'abord sur votre ordinateur, puis glissez le fichier');};
     im.src=u;
   }
 
