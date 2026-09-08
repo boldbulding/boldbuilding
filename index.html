@@ -315,7 +315,7 @@
           Importer une photo 360°
         </button>
       </div>
-      <p class="tour-note">Format attendu : panorama 360° équirectangulaire, largeur = 2 × hauteur (ex. 4000 × 2000).</p>
+      <p class="tour-note">Toute photo peut être importée. Astuce : une photo panoramique 360° (largeur = 2 × hauteur) donne le meilleur rendu immersif.</p>
     </div>
   </section>
 
@@ -904,14 +904,7 @@
       overlay.classList.remove('hidden-tour');
       var url=URL.createObjectURL(file);
       var im=new Image();
-      im.onload=function(){
-        var ratio=im.width/Math.max(1,im.height);
-        if(ratio<1.7||ratio>2.3){
-          errorMsg('Ce n\'est pas une photo 360° — il faut un panorama équirectangulaire (largeur = 2 × hauteur, ex. 4000×2000), pris avec une caméra 360° ou un mode panoramique. Celle-ci : '+im.width+'×'+im.height);
-          return;
-        }
-        setPhoto(im);
-      };
+      im.onload=function(){setPhoto(im);};
       im.onerror=function(){errorMsg('Image invalide — utilisez JPG ou PNG');};
       im.src=url;
       return;
