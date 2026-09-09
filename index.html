@@ -52,7 +52,9 @@
   .facade-title:after{background:#FFF9CE}
   .facade-card{max-width:56rem;margin:2rem auto 0;background:#fffdf5;border-radius:1.25rem;box-shadow:var(--shadow-elevated);padding:clamp(1.5rem,3vw,2.5rem);display:grid;gap:1.5rem}
   @media(min-width:820px){.facade-card{grid-template-columns:2fr 1fr;align-items:start}}
-  .facade-text p{color:var(--color-brand-ink);font-size:1.02rem;line-height:1.75}
+  .facade-text{font-weight:400;letter-spacing:.01em}
+  .facade-text p{color:var(--color-brand-ink);font-size:1rem;line-height:1.85;margin-bottom:1.1rem;text-align:justify}
+  .facade-text p:last-child{margin-bottom:0}
   .facade-side{display:flex;flex-direction:column;gap:.75rem}
   .facade-side b{font-family:"Cormorant Garamond",Georgia,serif;color:var(--color-brand-deep);font-weight:600;font-size:1.1rem}
   .facade-pills{display:flex;flex-wrap:wrap;gap:.5rem}
@@ -321,8 +323,10 @@
       <h2 class="section-title facade-title">Présentation de l'entreprise</h2>
       <div class="facade-card reveal">
         <div class="facade-text">
-          <p>Notre société Bold Building opère dans divers domaines à la fois au Maroc et à l'étranger : promotion immobilière, construction de bâtiments, réalisation de travaux publics, industriels et de génie civil. Notre portefeuille d'activités comprend la vente et l'achat d'immeubles, d'appartements, de villas et de terrains, la commercialisation, la location, l'importation et l'exportation de matériel et de matériaux de construction.</p>
-          <p>Entreprise polyvalente, nous offrons des services d'intermédiation et de sous-traitance, ainsi que des prestations de main-d'œuvre. Nous répondons aux besoins variés de nos clients et jouons un rôle significatif dans les secteurs où nous opérons. Notre objectif principal : favoriser le développement et la croissance, tout en maintenant des normes élevées de qualité et de service.</p>
+          <p>Notre société Bold Building opère dans divers domaines à la fois au Maroc et à l'étranger : <b>promotion immobilière</b>, <b>construction de bâtiments</b>, réalisation de <b>travaux publics, industriels et de génie civil</b>.</p>
+          <p>Notre portefeuille d'activités comprend la vente et l'achat d'immeubles, d'appartements, de villas et de terrains, ainsi que la commercialisation, la location, l'importation et l'exportation de matériel et de matériaux de construction.</p>
+          <p>Entreprise polyvalente, nous offrons des services d'intermédiation et de sous-traitance, ainsi que des prestations de main-d'œuvre.</p>
+          <p>Nous sommes positionnés pour répondre aux besoins variés de nos clients et jouer un rôle significatif dans les secteurs où nous opérons. Notre objectif principal est de favoriser le développement et la croissance, tout en maintenant des normes élevées de qualité et de service.</p>
         </div>
         <div class="facade-side">
           <b>Nos mots-clés</b>
