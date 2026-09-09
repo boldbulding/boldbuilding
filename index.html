@@ -45,6 +45,21 @@
   .section-title:after{content:"";background:var(--color-brand-gold);width:3rem;height:1px;margin:.75rem auto 0;display:block}
   .eyebrow{font-family:"Cormorant Garamond",Georgia,serif;color:var(--color-brand-gold-text);letter-spacing:.01em;font-size:.95rem;font-style:italic}
 
+  /* Facade presentation entreprise (palette officielle du dossier) */
+  #presentation{background:linear-gradient(135deg,#417E6F,#2f5c50)}
+  #presentation .eyebrow{color:#FFF9CE;text-align:center}
+  .facade-title{color:#FFF9CE}
+  .facade-title:after{background:#FFF9CE}
+  .facade-card{max-width:56rem;margin:2rem auto 0;background:#fffdf5;border-radius:1.25rem;box-shadow:var(--shadow-elevated);padding:clamp(1.5rem,3vw,2.5rem);display:grid;gap:1.5rem}
+  @media(min-width:820px){.facade-card{grid-template-columns:2fr 1fr;align-items:start}}
+  .facade-text p{color:var(--color-brand-ink);font-size:1.02rem;line-height:1.75}
+  .facade-side{display:flex;flex-direction:column;gap:.75rem}
+  .facade-side b{font-family:"Cormorant Garamond",Georgia,serif;color:var(--color-brand-deep);font-weight:600;font-size:1.1rem}
+  .facade-pills{display:flex;flex-wrap:wrap;gap:.5rem}
+  .facade-pills span{background:#eef4f1;color:#2f5c50;border:1px solid #cfe0d8;border-radius:999px;padding:.35rem .85rem;font-size:.85rem}
+  .swatches{display:flex;gap:.5rem;flex-wrap:wrap}
+  .swatches span{width:2.2rem;height:2.2rem;border-radius:.6rem;border:1px solid #00000014;box-shadow:0 2px 6px #00000014}
+
   /* Splash */
   #splash{position:fixed;inset:0;z-index:100;background:var(--color-brand-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .6s var(--ease-soft)}
   #splash.done{opacity:0;pointer-events:none}
@@ -295,6 +310,33 @@
           <svg viewBox="0 0 256 256" width="16" height="16" fill="currentColor"><path d="M222.37 158.46l-47.11-21.11-.13-.06a16 16 0 0 0-15.17 1.4 8.12 8.12 0 0 0-.75.56L134.87 160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.23.39-.48.57-.73a16 16 0 0 0 1.32-15.06l-.21-.42L97.54 33.64a16 16 0 0 0-16.5-8.56A56.18 56.18 0 0 0 38.66 80c0 71.55 65.79 137.34 137.34 137.34a56.18 56.18 0 0 0 54.92-42.38 16 16 0 0 0-8.55-16.5Z"/></svg>
           Nous appeler
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRESENTATION DE L'ENTREPRISE -->
+  <section id="presentation" class="section">
+    <div class="container-page">
+      <p class="eyebrow">Bold Building — Présentation officielle</p>
+      <h2 class="section-title facade-title">Présentation de l'entreprise</h2>
+      <div class="facade-card reveal">
+        <div class="facade-text">
+          <p>Notre société Bold Building opère dans divers domaines à la fois au Maroc et à l'étranger : promotion immobilière, construction de bâtiments, réalisation de travaux publics, industriels et de génie civil. Notre portefeuille d'activités comprend la vente et l'achat d'immeubles, d'appartements, de villas et de terrains, la commercialisation, la location, l'importation et l'exportation de matériel et de matériaux de construction.</p>
+          <p>Entreprise polyvalente, nous offrons des services d'intermédiation et de sous-traitance, ainsi que des prestations de main-d'œuvre. Nous répondons aux besoins variés de nos clients et jouons un rôle significatif dans les secteurs où nous opérons. Notre objectif principal : favoriser le développement et la croissance, tout en maintenant des normes élevées de qualité et de service.</p>
+        </div>
+        <div class="facade-side">
+          <b>Nos mots-clés</b>
+          <div class="facade-pills">
+            <span>Qualité</span><span>Bâtiment</span><span>Service</span><span>Développement</span><span>Croissance</span>
+          </div>
+          <b>Notre univers graphique</b>
+          <div class="swatches">
+            <span style="background:#417E6F" title="#417E6F"></span>
+            <span style="background:#6d9285" title="#6d9285"></span>
+            <span style="background:#95BBA4" title="#95BBA4"></span>
+            <span style="background:#FFF9CE" title="#FFF9CE"></span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
