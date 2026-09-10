@@ -60,7 +60,9 @@
   /* Splash */
   #splash{position:fixed;inset:0;z-index:100;background:var(--color-brand-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .6s var(--ease-soft)}
   #splash.done{opacity:0;pointer-events:none}
-  .brand-mark{font-family:var(--font-carving);color:#fff;font-size:2.2rem;letter-spacing:.14em;text-transform:uppercase;animation:mph-breathe 2.6s ease-in-out infinite}
+  .brand-mark{display:flex;align-items:center;gap:.9rem;justify-content:center}
+  .brand-mark img{height:3.4rem;width:auto;filter:drop-shadow(0 0 14px #ffffff2b)}
+  .brand-mark span{font-family:var(--font-carving);color:#fff;font-size:2.2rem;letter-spacing:.14em;text-transform:uppercase;animation:mph-breathe 2.6s ease-in-out infinite}
   .splash-bar{width:12rem;height:2px;background:#ffffff22;overflow:hidden;border-radius:2px}
   .splash-bar span{display:block;height:100%;width:45%;background:var(--color-brand-gold);animation:mph-loading 1.6s ease-in-out infinite}
   @keyframes mph-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05);text-shadow:0 0 18px var(--color-brand-gold)}}
@@ -71,6 +73,8 @@
   header.scrolled{background:rgba(47,92,80,.96);box-shadow:0 1px 0 #ffffff14}
   .header-in{display:flex;align-items:center;justify-content:space-between;gap:1rem}
   .logo{display:flex;align-items:center;gap:.6rem;color:#fff}
+  .logo .logo-icon{height:2.2rem;width:auto;flex-shrink:0;filter:drop-shadow(0 2px 6px #00000066)}
+  @media(max-width:480px){.logo .logo-icon{height:1.9rem}}
   .logo .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.25rem;text-transform:uppercase}
   .logo .mark b{color:var(--color-brand-gold);font-weight:400}
   .logo small{display:block;font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;color:#ffffffb0;font-family:var(--font-carving);font-weight:300}
@@ -179,6 +183,7 @@
   /* Footer */
   footer{background:var(--color-brand-deep);color:#ffffffd9;border-top:1px solid #ffffff14}
   .footer-top{text-align:center;padding:4.5rem 1.25rem 2.5rem}
+  .footer-top .footer-logo-icon{height:3rem;width:auto;display:block;margin:0 auto 1rem;filter:drop-shadow(0 2px 8px #00000055)}
   .footer-top .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.8rem;text-transform:uppercase;color:#fff}
   .footer-top .mark b{color:var(--color-brand-gold);font-weight:400}
   .footer-top p{font-family:var(--font-carving);font-style:italic;color:#ffffff8c;letter-spacing:.04em;margin-top:.6rem}
@@ -231,13 +236,17 @@
 <body>
 
 <div id="splash" aria-hidden="true">
-  <div class="brand-mark">Bold <b>Building</b></div>
+  <div class="brand-mark">
+    <img src="images/logo.png" alt="Logo Bold Building">
+    <span>Bold <b>Building</b></span>
+  </div>
   <div class="splash-bar"><span></span></div>
 </div>
 
 <header>
   <div class="container-page header-in">
     <a class="logo" href="#top" aria-label="Bold Building sarl">
+      <img class="logo-icon" src="images/logo.png" alt="Logo Bold Building">
       <span class="mark">Bold <b>Building</b></span>
       <small>Sarl</small>
     </a>
@@ -447,6 +456,7 @@
 
 <footer>
   <div class="footer-top">
+    <img class="footer-logo-icon" src="images/logo.png" alt="Logo Bold Building">
     <div class="mark">Bold <b>Building</b></div>
     <p>Un nouvel horizon pour vivre autrement</p>
   </div>
