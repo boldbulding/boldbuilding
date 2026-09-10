@@ -26,7 +26,7 @@
     --color-muted-foreground:#5c6b64;
     --color-border:#d7e2da;
     --color-ring:#95bba4;
-    --font-carving:"Carving",var(--font-carving);
+    --font-carving:"Carving","Cormorant Garamond",Georgia,serif;
     --shadow-card:0 1px 2px #0000000a,0 8px 24px -8px #0000001a;
     --shadow-elevated:0 10px 40px -10px #0000002e;
     --section-pad-y:clamp(3rem,6vw,6rem);
@@ -62,7 +62,7 @@
   #splash.done{opacity:0;pointer-events:none}
   .brand-mark{display:flex;align-items:center;gap:.9rem;justify-content:center}
   .brand-mark img{height:3.4rem;width:auto;filter:drop-shadow(0 0 14px #ffffff2b)}
-  .brand-mark span{font-family:var(--font-carving);color:#fff;font-size:2.2rem;letter-spacing:.14em;text-transform:uppercase;animation:mph-breathe 2.6s ease-in-out infinite}
+  .brand-mark span{font-family:var(--font-carving);color:#fff9ce;font-size:2.2rem;letter-spacing:.14em;text-transform:uppercase;animation:mph-breathe 2.6s ease-in-out infinite}
   .splash-bar{width:12rem;height:2px;background:#ffffff22;overflow:hidden;border-radius:2px}
   .splash-bar span{display:block;height:100%;width:45%;background:var(--color-brand-gold);animation:mph-loading 1.6s ease-in-out infinite}
   @keyframes mph-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05);text-shadow:0 0 18px var(--color-brand-gold)}}
@@ -75,8 +75,8 @@
   .logo{display:flex;align-items:center;gap:.6rem;color:#fff}
   .logo .logo-icon{height:2.2rem;width:auto;flex-shrink:0;filter:drop-shadow(0 2px 6px #00000066)}
   @media(max-width:480px){.logo .logo-icon{height:1.9rem}}
-  .logo .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.25rem;text-transform:uppercase}
-  .logo .mark b{color:var(--color-brand-gold);font-weight:400}
+  .logo .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.25rem;text-transform:uppercase;color:#fff9ce}
+  .logo .mark b{color:#fff9ce;font-weight:400}
   .logo small{display:block;font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;color:#ffffffb0;font-family:var(--font-carving);font-weight:300}
   nav.main{display:none;align-items:center;gap:1.75rem}
   @media(min-width:1024px){nav.main{display:flex}}
@@ -157,8 +157,8 @@
   footer{background:var(--color-brand-deep);color:#ffffffd9;border-top:1px solid #ffffff14}
   .footer-top{text-align:center;padding:4.5rem 1.25rem 2.5rem}
   .footer-top .footer-logo-icon{height:3rem;width:auto;display:block;margin:0 auto 1rem;filter:drop-shadow(0 2px 8px #00000055)}
-  .footer-top .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.8rem;text-transform:uppercase;color:#fff}
-  .footer-top .mark b{color:var(--color-brand-gold);font-weight:400}
+  .footer-top .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.8rem;text-transform:uppercase;color:#fff9ce}
+  .footer-top .mark b{color:#fff9ce;font-weight:400}
   .footer-top p{font-family:var(--font-carving);font-style:italic;color:#ffffff8c;letter-spacing:.04em;margin-top:.6rem}
   .footer-cols{display:grid;grid-template-columns:1fr;gap:2.5rem;padding:2rem 1.25rem 3rem;max-width:80rem;margin-inline:auto}
   @media(min-width:768px){.footer-cols{grid-template-columns:repeat(3,1fr);gap:3rem;padding-inline:2rem}}
