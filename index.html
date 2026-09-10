@@ -136,33 +136,6 @@
   .spec b{display:block;font-weight:600;font-family:var(--font-carving);font-size:1.15rem;color:var(--color-brand-ink)}
   .spec span{display:block;font-size:.85rem;color:var(--color-muted-foreground);line-height:1.35}
 
-  /* Why us */
-  .alt-bg{background:var(--color-surface-2)}
-  .why-grid{display:grid;gap:.25rem 2.5rem;grid-template-columns:1fr;margin-top:2rem}
-  @media(min-width:640px){.why-grid{grid-template-columns:1fr 1fr}}
-  @media(min-width:1024px){.why-grid{grid-template-columns:1fr 1fr 1fr}}
-  .why-item{display:flex;align-items:flex-start;gap:1rem;padding-block:1.1rem;border-bottom:1px solid var(--color-border)}
-  .why-item .ic{width:2.4rem;height:2.4rem;flex:none;display:grid;place-items:center;border-radius:999px;background:var(--color-brand-gold);color:#fff}
-  .why-item .ic svg{width:1.2rem;height:1.2rem}
-  .why-item b{display:block;font-weight:600;font-family:var(--font-carving);font-size:1.15rem;color:var(--color-brand-ink)}
-  .why-item span{display:block;font-size:.85rem;color:var(--color-muted-foreground);line-height:1.35}
-
-  /* Gallery */
-  #gallery{background:var(--color-surface-2)}
-  .gallery-grid{display:flex;justify-content:center;flex-wrap:wrap;gap:.6rem;margin-top:2rem}
-  @media(min-width:768px){.gallery-grid{gap:.8rem}}
-  .g-item{position:relative;aspect-ratio:4/3;overflow:hidden;border-radius:.3rem;cursor:pointer;background:#eef4f1;flex:1 1 260px;max-width:480px}
-  .g-item img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease-soft)}
-  .g-item:hover img{transform:scale(1.06)}
-  .g-item .ov{position:absolute;inset:0;background:rgba(47,92,80,0);transition:background .4s;display:grid;place-items:center}
-  .g-item .ov .pill{opacity:0;transform:translateY(6px);transition:all .4s var(--ease-soft);display:inline-flex;align-items:center;gap:.4rem;background:var(--color-brand-gold);color:#fff;font-size:.8rem;padding:.5rem 1rem;border-radius:999px}
-  .g-item:hover .ov{background:rgba(47,92,80,.45)}
-  .g-item:hover .ov .pill{opacity:1;transform:none}
-  .g-add{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem;border:1.5px dashed var(--color-brand-gold);color:var(--color-brand-gold-text);border-radius:.3rem;aspect-ratio:4/3;text-align:center;padding:1rem}
-  .g-add svg{width:1.8rem;height:1.8rem}
-  .g-add small{font-size:.78rem;line-height:1.4;color:var(--color-muted-foreground)}
-  .gallery-note{margin-top:1rem;text-align:center;color:var(--color-muted-foreground);font-size:.85rem}
-
   /* Contact */
   #contact{background:var(--color-brand-deep);color:#fff}
   #contact .section-title{color:#fff}
@@ -254,8 +227,6 @@
       <a href="#top">Accueil</a>
       <a href="#about">À Propos</a>
       <a href="#services">Services</a>
-      <a href="#gallery">Réalisations</a>
-      <a href="#why">Pourquoi ?</a>
       <a href="#contact">Contact</a>
     </nav>
     <div class="header-right">
@@ -371,56 +342,6 @@
     </div>
   </section>
 
-  <!-- POURQUOI NOUS CHOISIR -->
-  <section id="why" class="section alt-bg">
-    <div class="container-page">
-      <h2 class="section-title">Pourquoi Bold Building ?</h2>
-      <div class="why-grid">
-        <div class="why-item reveal">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-          <div><b>Qualité et précision</b><span>Exécution soignée, conforme aux plans et aux normes.</span></div>
-        </div>
-        <div class="why-item reveal">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></span>
-          <div><b>Respect des délais</b><span>Un planning maîtrisé, un chantier livré à temps.</span></div>
-        </div>
-        <div class="why-item reveal">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <div><b>Suivi personnalisé</b><span>Un interlocuteur dédié du début à la fin du projet.</span></div>
-        </div>
-        <div class="why-item reveal">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></span>
-          <div><b>Équipe qualifiée</b><span>Des professionnels expérimentés sur chaque corps de métier.</span></div>
-        </div>
-        <div class="why-item reveal">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg></span>
-          <div><b>Matériaux de qualité</b><span>Des fournisseurs fiables pour un résultat durable.</span></div>
-        </div>
-        <div class="why-item reveal">
-          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 17 6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></span>
-          <div><b>Accompagnement de A à Z</b><span>De la conception aux finitions, nous restons à vos côtés.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALERIE -->
-  <section id="gallery" class="section">
-    <div class="container-page">
-      <h2 class="section-title">Réalisations</h2>
-      <div class="gallery-grid">
-        <div class="g-item reveal">
-          <img src="images/hero.png" alt="Réalisation Bold Building" data-lightbox="images/hero.png">
-          <div class="ov"><span class="pill">
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/></svg>
-            Voir
-          </span></div>
-        </div>
-      </div>
-      <p class="gallery-note">Photos de nos derniers chantiers à venir.</p>
-    </div>
-  </section>
-
   <!-- CONTACT -->
   <section id="contact" class="section">
     <div class="container-page">
@@ -468,8 +389,6 @@
         <li><a href="#top"><span class="dash"></span>Accueil</a></li>
         <li><a href="#about"><span class="dash"></span>À Propos</a></li>
         <li><a href="#services"><span class="dash"></span>Services</a></li>
-        <li><a href="#gallery"><span class="dash"></span>Réalisations</a></li>
-        <li><a href="#why"><span class="dash"></span>Pourquoi nous choisir</a></li>
         <li><a href="#contact"><span class="dash"></span>Contact</a></li>
       </ul>
     </div>
