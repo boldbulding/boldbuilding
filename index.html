@@ -46,6 +46,15 @@
   .section-title:after{content:"";background:var(--color-brand-gold);width:3rem;height:1px;margin:.75rem auto 0;display:block}
   .eyebrow{font-family:var(--font-carving);color:var(--color-brand-gold-text);letter-spacing:.01em;font-size:.95rem;font-style:italic}
 
+  /* Sections fond photo (photos PROJ améliorées) */
+  .section-photo{position:relative}
+  .section-photo::before{content:"";position:absolute;inset:0;background-image:var(--section-photo);background-size:cover;background-position:center;filter:saturate(1.12) contrast(1.06) brightness(1.03);transform:scale(1.02)}
+  .section-photo::after{content:"";position:absolute;inset:0;background:var(--section-photo-veil, rgba(255,253,245,.92))}
+  .section-photo>.container-page{position:relative;z-index:1}
+  #about.section-photo{--section-photo:url("images/proj1.jpg");--section-photo-veil:rgba(255,253,245,.9)}
+  #services.section-photo{background:var(--color-surface-2);--section-photo:url("images/proj2.jpg");--section-photo-veil:rgba(255,253,245,.9)}
+  #contact.section-photo{--section-photo:url("images/proj1.jpg");--section-photo-veil:rgba(34,51,44,.86)}
+
   /* Facade presentation entreprise (palette officielle du dossier) */
   #presentation{background:linear-gradient(135deg,#417E6F,#2f5c50)}
   #presentation .eyebrow{color:#FFF9CE;text-align:center}
@@ -297,7 +306,7 @@
   </section>
 
   <!-- À PROPOS -->
-  <section id="about" class="section">
+  <section id="about" class="section section-photo">
     <div class="container-page overview-grid">
       <div class="overview-text reveal">
         <p class="eyebrow">Bold Building sarl</p>
@@ -317,7 +326,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section id="services" class="section">
+  <section id="services" class="section section-photo">
     <div class="container-page">
       <h2 class="section-title">Nos Services</h2>
       <ul class="specs-grid" style="list-style:none">
@@ -369,7 +378,7 @@
   </section>
 
   <!-- CONTACT -->
-  <section id="contact" class="section">
+  <section id="contact" class="section section-photo">
     <div class="container-page">
       <h2 class="section-title">Contactez-nous</h2>
       <a class="contact-cta reveal" href="https://wa.me/212644963171?text=Bonjour%20Bold%20Building%2C%20je%20souhaite%20demander%20un%20devis" target="_blank" rel="noopener">
