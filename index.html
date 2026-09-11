@@ -53,7 +53,8 @@
   .section-photo>.container-page{position:relative;z-index:1}
   #about.section-photo{--section-photo:url("images/proj1.jpg");--section-photo-veil:rgba(255,253,245,.9)}
   #services.section-photo{background:var(--color-surface-2);--section-photo:url("images/proj2.jpg");--section-photo-veil:rgba(255,253,245,.9)}
-  #contact.section-photo{--section-photo:url("images/proj1.jpg");--section-photo-veil:rgba(34,51,44,.86)}
+  #projets.section-photo{--section-photo:url("images/proj3.jpg");--section-photo-veil:rgba(255,253,245,.88)}
+  #contact.section-photo{--section-photo:url("images/proj4.jpg");--section-photo-veil:rgba(34,51,44,.86)}
 
   /* Facade presentation entreprise (palette officielle du dossier) */
   #presentation{background:linear-gradient(135deg,#417E6F,#2f5c50)}
@@ -107,10 +108,14 @@
   .hero img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
   .hero-slides{position:absolute;inset:0}
   .hero-slides img.bg{will-change:opacity}
-  .hero-slides .slide-1{animation:heroSlides1 10s linear infinite}
-  .hero-slides .slide-2{animation:heroSlides2 10s linear infinite}
-  @keyframes heroSlides1{0%,40%{opacity:1}60%,90%{opacity:0}100%{opacity:1}}
-  @keyframes heroSlides2{0%,40%{opacity:0}60%,90%{opacity:1}100%{opacity:0}}
+  .hero-slides .slide-1{animation:heroSlides1 20s linear infinite}
+  .hero-slides .slide-2{animation:heroSlides2 20s linear infinite}
+  .hero-slides .slide-3{animation:heroSlides3 20s linear infinite}
+  .hero-slides .slide-4{animation:heroSlides4 20s linear infinite}
+  @keyframes heroSlides1{0%{opacity:0}2.5%{opacity:1}20%{opacity:1}25%{opacity:0}97.5%{opacity:0}100%{opacity:0}}
+  @keyframes heroSlides2{20%{opacity:0}22.5%{opacity:1}45%{opacity:1}47.5%{opacity:0}}
+  @keyframes heroSlides3{45%{opacity:0}47.5%{opacity:1}70%{opacity:1}72.5%{opacity:0}}
+  @keyframes heroSlides4{70%{opacity:0}72.5%{opacity:1}95%{opacity:1}100%{opacity:0}}
   .hero .mask{position:absolute;inset:0;background:radial-gradient(70% 55% at 50% 52%,#00000080 0%,#0000004d 45%,#0000 80%),linear-gradient(#00000073 0%,#00000014 22%,#0000001f 60%,#00000099 100%)}
   .hero .hero-text{position:relative;z-index:1;color:#fff;padding-top:var(--header-h);max-width:52rem;padding-inline:1.25rem;text-shadow:0 1px 2px #00000059,0 2px 14px #00000073}
   .hero .eyebrow{color:#fff9ce;text-transform:uppercase;letter-spacing:.3em;font-style:normal;font-family:var(--font-carving);font-size:.75rem}
@@ -269,6 +274,8 @@
     <div class="hero-slides" aria-hidden="true">
       <img class="bg slide-1" src="images/proj1.jpg" alt="">
       <img class="bg slide-2" src="images/proj2.jpg" alt="">
+      <img class="bg slide-3" src="images/proj3.jpg" alt="">
+      <img class="bg slide-4" src="images/proj4.jpg" alt="">
     </div>
     <div class="mask"></div>
     <div class="hero-text">
@@ -367,7 +374,7 @@
   </section>
 
   <!-- NOS PROJETS -->
-  <section id="projets" class="section">
+  <section id="projets" class="section section-photo">
     <div class="container-page">
       <h2 class="section-title">Nos Projets</h2>
       <p class="projets-intro">Retrouvez nos projets en cours et passés dans la région de Tiflet.</p>
