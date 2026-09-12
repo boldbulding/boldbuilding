@@ -239,10 +239,12 @@
   .pm-window{position:absolute;inset:0;background:var(--color-bg);overflow:auto;-webkit-overflow-scrolling:touch}
   .pm-close{position:fixed;top:.9rem;right:1rem;z-index:5;width:2.7rem;height:2.7rem;border-radius:999px;border:none;background:rgba(34,51,44,.92);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow-elevated);transition:background .3s,transform .3s}
   .pm-close:hover{background:#2f5c50;transform:rotate(90deg)}
-  .pm-hero{position:relative;background:linear-gradient(135deg,#417E6F 0%,#2F5C50 100%);color:#fff;text-align:center;padding:7rem 1.25rem 4rem;overflow:hidden}
+  .pm-hero{position:relative;background:radial-gradient(95% 70% at 18% -10%,rgba(149,187,164,.45) 0%,rgba(149,187,164,0) 60%),radial-gradient(70% 55% at 85% 115%,rgba(34,51,44,.6) 0%,rgba(34,51,44,0) 60%),linear-gradient(135deg,#417E6F 0%,#2F5C50 100%);color:#fff;text-align:center;padding:7rem 1.25rem 4.5rem;overflow:hidden}
+  .pm-hero::before{content:"";position:absolute;inset:0;opacity:.07;pointer-events:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><circle cx='1' cy='1' r='1' fill='%23ffffff'/></svg>")}
+  .pm-hero .topline{position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,rgba(255,249,206,.85) 50%,transparent);pointer-events:none}
   .pm-hero .ring{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:34rem;height:34rem;border:1px solid #6D928566;border-radius:50%;pointer-events:none}
   .pm-hero .ring:after{content:"";position:absolute;inset:3rem;border:1px solid #95BBA43d;border-radius:50%}
-  .pm-hero:after{content:"";position:absolute;inset:auto 0 0 0;height:5rem;background:linear-gradient(to top,var(--color-bg),transparent)}
+  .pm-hero:after{content:"";position:absolute;inset:auto 0 0 0;height:3.5rem;background:linear-gradient(to top,var(--color-bg),rgba(255,253,245,0))}
   .pm-eyebrow{position:relative;z-index:1;color:#fff9ce;font-family:var(--font-carving);font-style:italic;font-size:.9rem;letter-spacing:.26em;text-transform:uppercase;background:#ffffff1a;border:1px solid #fff9ce42;display:inline-block;padding:.5rem 1.2rem;border-radius:999px;backdrop-filter:blur(2px)}
   .pm-hero h2{position:relative;z-index:1;font-family:var(--font-display);font-weight:400;font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.16;margin-top:1.2rem;max-width:50rem;margin-inline:auto;color:#ffffff;text-shadow:0 2px 20px #00000055,0 1px 3px #00000077}
   .pm-hero h2 em{font-family:var(--font-carving);color:#fff9ce;font-style:italic;font-weight:500;text-shadow:0 2px 18px #fff9ce40}
@@ -536,6 +538,7 @@
   <div class="pm-window">
     <button class="pm-close" id="pmClose" aria-label="Fermer">&times;</button>
     <header class="pm-hero">
+      <div class="topline"></div>
       <div class="ring"></div>
       <p class="pm-eyebrow">Bold Building sarl — Promotion immobilière</p>
       <h2>Résidence R+2 — <em>Un cadre de vie pensé pour votre confort</em></h2>
