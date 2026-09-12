@@ -215,7 +215,63 @@
   .reveal{opacity:0;transform:translateY(12px);transition:opacity .7s var(--ease-soft),transform .7s var(--ease-soft)}
   .reveal.is-visible{opacity:1;transform:none}
   @media(max-width:640px){.btn-call{font-size:.8rem;padding:.55rem .9rem}}
+
+  /* ===== Carte interactive (Leaflet) ===== */
+  #map{height:450px;width:100%;z-index:0}
+  .bb-pin{background:transparent;border:none}
+  .bb-pin svg{display:block;filter:drop-shadow(0 4px 10px rgba(0,0,0,.45));transition:transform .25s var(--ease-soft)}
+  .bb-pin:hover svg{transform:scale(1.08)}
+  .pin-popup .leaflet-popup-content-wrapper{background:#fffdf5;box-shadow:0 12px 40px -8px #00000038;border-radius:1rem;border:1px solid #ffffff;overflow:hidden}
+  .pin-popup .leaflet-popup-tip{background:#fffdf5}
+  .pin-popup .leaflet-popup-content{margin:0;min-width:210px}
+  .pin-card{padding:1.1rem 1.2rem;text-align:center;display:flex;flex-direction:column;gap:.45rem}
+  .pin-card .pin-badge{display:inline-flex;align-items:center;gap:.45rem;justify-content:center}
+  .pin-card .pin-badge svg{width:.95rem;height:.95rem;color:var(--color-brand-gold)}
+  .pin-card b{font-family:var(--font-carving);font-size:1.02rem;letter-spacing:.12em;text-transform:uppercase;color:var(--color-brand-ink)}
+  .pin-card span.lot-desc{font-size:.8rem;color:var(--color-muted-foreground);font-style:italic;font-family:var(--font-carving)}
+  .pin-card button{margin-top:.55rem;background:linear-gradient(135deg,#417e6f,#2f5c50);color:#fff;border:none;font-family:inherit;font-weight:600;font-size:.85rem;letter-spacing:.03em;padding:.68rem 1rem;border-radius:999px;cursor:pointer;box-shadow:0 8px 20px -6px #2f5c5080;transition:transform .25s,box-shadow .25s,background .25s}
+  .pin-card button:hover{transform:translateY(-2px);box-shadow:0 12px 26px -6px #2f5c50a6}
+
+  /* ===== Page projet (Résidence + Appartement) ===== */
+  .projet-modal{position:fixed;inset:0;z-index:85;visibility:hidden;opacity:0;pointer-events:none;transition:opacity .35s var(--ease-soft)}
+  .projet-modal.open{visibility:visible;opacity:1;pointer-events:auto}
+  .pm-window{position:absolute;inset:0;background:var(--color-bg);overflow:auto;-webkit-overflow-scrolling:touch}
+  .pm-close{position:fixed;top:.9rem;right:1rem;z-index:5;width:2.7rem;height:2.7rem;border-radius:999px;border:none;background:rgba(34,51,44,.92);color:#fff;font-size:1.7rem;line-height:1;cursor:pointer;display:grid;place-items:center;box-shadow:var(--shadow-elevated);transition:background .3s,transform .3s}
+  .pm-close:hover{background:#2f5c50;transform:rotate(90deg)}
+  .pm-hero{position:relative;background:linear-gradient(135deg,#417e6f 0%,#2f5c50 60%,#22332c 100%);color:#fff;text-align:center;padding:7rem 1.25rem 3.5rem}
+  .pm-hero:after{content:"";position:absolute;inset:auto 0 0 0;height:5rem;background:linear-gradient(to top,var(--color-bg),transparent)}
+  .pm-eyebrow{color:#fff9ce;font-family:var(--font-carving);font-style:italic;font-size:.95rem;letter-spacing:.18em;text-transform:uppercase}
+  .pm-hero h2{position:relative;z-index:1;font-family:var(--font-carving);font-weight:500;font-size:clamp(1.9rem,4.2vw,3.1rem);line-height:1.14;margin-top:.7rem;max-width:48rem;margin-inline:auto}
+  .pm-hero h2 em{color:#fff9ce;font-style:italic;font-weight:400}
+  .pm-lot{position:relative;z-index:1;margin-top:1rem;font-family:var(--font-carving);font-size:.8rem;letter-spacing:.3em;text-transform:uppercase;color:#ffffffa8}
+  .pm-body{max-width:66rem;margin-inline:auto;padding:2.5rem 1.25rem 4.5rem}
+  .pm-section-head{text-align:center;margin-bottom:2rem}
+  .pm-section-head .kicker{font-family:var(--font-carving);font-style:italic;color:var(--color-brand-gold-text);font-size:.9rem}
+  .pm-section-head h3{font-family:var(--font-carving);font-weight:500;font-size:clamp(1.6rem,3vw,2.3rem);color:var(--color-brand-ink);margin-top:.3rem}
+  .pm-section-head h3:after{content:"";display:block;width:2.6rem;height:1px;background:var(--color-brand-gold);margin:.7rem auto 0}
+  .pm-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
+  @media(min-width:820px){.pm-grid{grid-template-columns:1.05fr .95fr;gap:3rem}}
+  .pm-media{position:relative;cursor:pointer}
+  .pm-media img{width:100%;border-radius:.6rem;box-shadow:var(--shadow-elevated);display:block}
+  .pm-media .zoom-badge{position:absolute;right:.85rem;bottom:.85rem;display:inline-flex;align-items:center;gap:.4rem;background:rgba(31,50,42,.86);color:#fff;font-size:.8rem;padding:.45rem .8rem;border-radius:999px;backdrop-filter:blur(4px)}
+  .pm-text p{color:var(--color-muted-foreground);line-height:1.8;text-align:justify;margin-top:1rem;font-size:.97rem}
+  .pm-text p b{color:var(--color-brand-deep);font-weight:600}
+  .pm-text p:first-of-type{margin-top:0}
+  .pm-divider{height:1px;background:var(--color-border);margin:3rem auto;max-width:40rem}
+  .pm-app .pm-media{margin-top:1.6rem}
+  .pm-specs{list-style:none;display:grid;grid-template-columns:repeat(2,1fr);gap:.7rem;margin-top:1.8rem}
+  @media(min-width:640px){.pm-specs{grid-template-columns:repeat(3,1fr)}}
+  .pm-specs li{display:flex;align-items:center;gap:.6rem;background:var(--color-surface);border:1px solid var(--color-border);border-radius:.5rem;padding:.8rem 1rem;font-size:.9rem;color:var(--color-brand-ink)}
+  .pm-specs li svg{width:1.1rem;height:1.1rem;color:var(--color-brand-gold);flex:none}
+  .pm-specs li b{font-weight:600;color:var(--color-brand-deep);font-size:1.02rem}
+  .pm-price{margin-top:2rem;display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;background:linear-gradient(135deg,#417e6f,#2f5c50);color:#fff;border-radius:1rem;padding:1.6rem 1.5rem;box-shadow:var(--shadow-elevated)}
+  .pm-price span{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#fff9ce;font-family:var(--font-carving);font-style:italic}
+  .pm-price b{font-family:var(--font-carving);font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.03em}
+  .pm-note{text-align:center;color:var(--color-muted-foreground);font-size:.78rem;font-style:italic;margin-top:.9rem;font-family:var(--font-carving)}
+  @media(max-width:640px){.pm-hero{padding-top:6rem}}
 </style>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </head>
 <body>
 
@@ -363,7 +419,7 @@
       <h2 class="section-title">Nos Projets</h2>
       <p class="projets-intro">Retrouvez nos projets en cours et passés dans la région de Tiflet.</p>
       <div class="projets-map">
-        <iframe src="https://www.google.com/maps?q=33.8863546,-6.3321855&z=17&output=embed" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" title="Carte de Tiflet"></iframe>
+        <div id="map" aria-label="Carte de Tiflet — Résidence R+2, LOT 38 JAWHARA"></div>
       </div>
     </div>
   </section>
@@ -471,6 +527,72 @@
   </button>
 </div>
 
+<!-- Page projet : Résidence R+2 + Appartement N°1 -->
+<div class="projet-modal" id="projetModal" aria-hidden="true">
+  <div class="pm-window">
+    <button class="pm-close" id="pmClose" aria-label="Fermer">&times;</button>
+    <header class="pm-hero">
+      <p class="pm-eyebrow">Bold Building sarl — Promotion immobilière</p>
+      <h2>Résidence R+2 — <em>Un cadre de vie pensé pour votre confort</em></h2>
+      <p class="pm-lot">LOT 38 JAWHARA &bull; Tiflet</p>
+    </header>
+    <div class="pm-body">
+      <div class="pm-section-head">
+        <p class="kicker">La Résidence</p>
+        <h3>Une architecture contemporaine et harmonieuse</h3>
+      </div>
+      <div class="pm-grid">
+        <figure class="pm-media">
+          <img src="images/residence.jpg" alt="Résidence R+2 — LOT 38 JAWHARA, Tiflet" data-lightbox="images/residence.jpg">
+          <span class="zoom-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+            Agrandir
+          </span>
+        </figure>
+        <div class="pm-text">
+          <p>Découvrez une résidence R+2 au cœur de Tiflet : une architecture contemporaine et harmonieuse, conçue pour offrir un cadre de vie calme, confortable et fonctionnel. Idéalement située, elle propose des appartements lumineux bénéficiant d'une distribution optimisée et de finitions moyen standing soigneusement sélectionnées.</p>
+          <p>Chaque logement est pensé pour répondre aux besoins du quotidien, avec des espaces agréables, des équipements fonctionnels et une attention particulière portée à la qualité des matériaux et des finitions.</p>
+          <p>La nouveauté de ce projet : <b>Bold Building propose pour la première fois à Tiflet un appartement en duplex</b>, offrant une nouvelle manière d'habiter, avec une organisation sur deux niveaux qui distingue harmonieusement les espaces de vie des espaces privés.</p>
+          <p>Une résidence à taille humaine, alliant confort, tranquillité, innovation et qualité de construction, <b>signée Bold Building</b>.</p>
+        </div>
+      </div>
+      <div class="pm-divider"></div>
+      <div class="pm-section-head">
+        <p class="kicker">Appartement N°1 — RDC</p>
+        <h3>Un cadre de vie élégant et parfaitement équilibré</h3>
+      </div>
+      <div class="pm-app">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.8">
+          L'Appartement N°1 offre un cadre de vie élégant et parfaitement équilibré, pensé pour allier confort et intimité. Il se compose d'un salon lumineux, d'un séjour accueillant, d'une cuisine et de trois chambres, dont une suite parentale avec dressing et salle de bain privative.
+        </p>
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+          L'appartement dispose au total de deux salles de bain, dont une intégrée à la suite parentale.
+        </p>
+        <figure class="pm-media">
+          <img src="images/appart1.jpg" alt="Appartement N°1 — RDC, Résidence R+2" data-lightbox="images/appart1.jpg">
+          <span class="zoom-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" x2="16.65" y1="21" y2="16.65"/><line x1="11" x2="11" y1="8" y2="14"/><line x1="8" x2="14" y1="11" y2="11"/></svg>
+            Agrandir
+          </span>
+        </figure>
+        <ul class="pm-specs">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 12h1M9 15h1M14 9h1M14 12h1M14 15h1"/></svg><b>84 m²</b> Surface couverte</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16v8H4zM8 20v-6M16 20v-6"/><path d="M2 12l10-8 10 8"/></svg><b>1</b> Salon</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h1M9 12h1M9 15h1M14 9h1M14 12h1M14 15h1"/></svg><b>1</b> Séjour</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20M2 12a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5M8 7v10M16 7v10"/></svg><b>3</b> Chambres</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4zM8 4v5a4 4 0 0 0 8 0V4"/></svg><b>2</b> Salles de bain</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8v3H8zM6 6h12v3H6zM15 9v5M9 9v12M15 14h-6v7"/></svg><b>1</b> Cuisine équipée</li>
+        </ul>
+        <div class="pm-price">
+          <span>Prix de vente</span>
+          <b>540 000.00 MAD</b>
+        </div>
+        <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <button class="close" aria-label="Fermer">&times;</button>
@@ -502,6 +624,30 @@
   });
   lb.querySelector('.close').addEventListener('click',function(){lb.classList.remove('open');document.body.style.overflow=''});
   lb.addEventListener('click',function(e){if(e.target===lb){lb.classList.remove('open');document.body.style.overflow=''}});
+
+  /* ===== Carte Leaflet — épingle rouge → carte LOT 38 JAWHARA ===== */
+  var pm=document.getElementById('projetModal'),pmClose=document.getElementById('pmClose');
+  window.bbOpenProjet=function(){pm.classList.add('open');document.body.style.overflow='hidden';setTimeout(function(){map.invalidateSize()},320)};
+  function bbCloseProjet(){pm.classList.remove('open');document.body.style.overflow=''}
+  pmClose.addEventListener('click',bbCloseProjet);
+  pm.addEventListener('click',function(e){if(e.target===pm)bbCloseProjet()});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'){bbCloseProjet();lb.classList.remove('open');document.body.style.overflow=''}});
+
+  var map=L.map('map',{scrollWheelZoom:false}).setView([33.8863546,-6.3321855],17);
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
+  L.control.scale({imperial:false}).addTo(map);
+  var pinSvg='<svg xmlns="http://www.w3.org/2000/svg" width="36" height="46" viewBox="0 0 34 44"><path d="M17 0C7.6 0 0 7.6 0 17c0 12.75 17 27 17 27s17-14.25 17-27C34 7.6 26.4 0 17 0z" fill="#d4361f" stroke="#ffffff" stroke-width="2"/><circle cx="17" cy="17" r="6.5" fill="#ffffff"/></svg>';
+  var pinIcon=L.divIcon({className:'bb-pin',html:pinSvg,iconSize:[36,46],iconAnchor:[18,46],popupAnchor:[0,-44]});
+  var mk=L.marker([33.8863546,-6.3321855],{icon:pinIcon}).addTo(map);
+  mk.bindPopup('<div class="pin-card">'+
+    '<span class="pin-badge"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10h-2a9 9 0 0 1-9-9V1"/><path d="M21 3v6h-6"/></svg></span>'+
+    '<b>LOT 38 JAWHARA</b>'+
+    '<span class="lot-desc">Résidence R+2 — Tiflet, Maroc</span>'+
+    '<button type="button" onclick="bbOpenProjet()">Voir la résidence</button>'+
+    '</div>',{minWidth:210,maxWidth:230,closeButton:false});
+  mk.on('click',function(){map.flyTo([33.8863546,-6.3321855],18)});
+  setTimeout(function(){map.invalidateSize()},500);
+
 })();
 </script>
 </body>
