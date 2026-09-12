@@ -27,6 +27,7 @@
     --color-border:#d7e2da;
     --color-ring:#95bba4;
     --font-carving:"Carving","Cormorant Garamond",Georgia,serif;
+    --font-display:"Italiana",var(--font-carving);
     --shadow-card:0 1px 2px #0000000a,0 8px 24px -8px #0000001a;
     --shadow-elevated:0 10px 40px -10px #0000002e;
     --section-pad-y:clamp(3rem,6vw,6rem);
@@ -42,14 +43,14 @@
   .container-page{width:100%;max-width:80rem;margin-inline:auto;padding-inline:1.25rem}
   @media(min-width:768px){.container-page{padding-inline:2rem}}
   .section{padding-block:var(--section-pad-y)}
-  .section-title{font-family:var(--font-carving);color:var(--color-brand-ink);text-align:center;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:500;line-height:1.15}
+  .section-title{font-family:var(--font-display);color:var(--color-brand-ink);text-align:center;font-size:clamp(1.75rem,3vw,2.5rem);font-weight:400;line-height:1.15;letter-spacing:.04em}
   .section-title:after{content:"";background:var(--color-brand-gold);width:3rem;height:1px;margin:.75rem auto 0;display:block}
   .eyebrow{font-family:var(--font-carving);color:var(--color-brand-gold-text);letter-spacing:.01em;font-size:.95rem;font-style:italic}
 
   /* Facade presentation entreprise (palette officielle du dossier) */
   #presentation{background:linear-gradient(135deg,#417E6F,#2f5c50)}
   #presentation .eyebrow{color:#FFF9CE;text-align:center}
-  .facade-title{color:#FFF9CE}
+  .facade-title{color:#FFF9CE;font-family:var(--font-display);font-weight:400;letter-spacing:.04em}
   .facade-title:after{background:#FFF9CE}
   .facade-card{max-width:56rem;margin:2rem auto 0;background:#fffdf5;border-radius:1.25rem;box-shadow:var(--shadow-elevated);padding:clamp(1.5rem,3vw,2.5rem)}
   .facade-text{font-family:var(--font-carving);font-weight:400;letter-spacing:.02em}
@@ -106,7 +107,7 @@
   .hero .hero-text{position:relative;z-index:1;color:#fff;padding-top:var(--header-h);max-width:52rem;padding-inline:1.25rem;text-shadow:0 1px 2px #00000059,0 2px 14px #00000073}
   .hero .eyebrow{color:#fff9ce;text-transform:uppercase;letter-spacing:.3em;font-style:normal;font-family:var(--font-carving);font-size:.75rem}
   @media(min-width:768px){.hero .eyebrow{font-size:.875rem}}
-  .hero h1{font-family:var(--font-carving);font-size:clamp(2.4rem,6vw,4.5rem);font-weight:500;margin-top:.75rem;line-height:1.05}
+  .hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.5rem);font-weight:400;margin-top:.75rem;line-height:1.08;letter-spacing:.03em}
   .hero p.tag{max-width:34rem;margin:1.1rem auto 0;font-family:var(--font-carving);font-style:italic;font-size:1.15rem;color:#ffffffc9}
   .hero p.hero-sub{max-width:38rem;margin:.8rem auto 0;font-size:.95rem;line-height:1.6;color:#ffffffd4}
   .hero .btn-wa{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-size:.9rem;font-weight:600;padding:.85rem 1.6rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 10px 30px -8px #00000077}
@@ -122,7 +123,7 @@
   .overview-grid{display:grid;grid-template-columns:1fr;gap:2.5rem;margin-top:2.5rem;align-items:center}
   @media(min-width:768px){.overview-grid{grid-template-columns:1.1fr .9fr;gap:3.5rem}}
   .overview-text .eyebrow{font-size:1rem}
-  .overview-text h2{font-family:var(--font-carving);font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:500;color:var(--color-brand-deep);margin-top:.25rem;line-height:1.1}
+  .overview-text h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:400;color:var(--color-brand-deep);margin-top:.25rem;line-height:1.12;letter-spacing:.02em}
   .overview-text p{color:var(--color-muted-foreground);line-height:1.75;text-align:justify;margin-top:1.1rem;font-size:.98rem}
   .overview-media{position:relative;cursor:pointer}
   .overview-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:.35rem;box-shadow:var(--shadow-card);transition:transform .6s var(--ease-soft)}
@@ -243,14 +244,14 @@
   .pm-hero .ring:after{content:"";position:absolute;inset:3rem;border:1px solid #fff9ce1f;border-radius:50%}
   .pm-hero:after{content:"";position:absolute;inset:auto 0 0 0;height:5rem;background:linear-gradient(to top,var(--color-bg),transparent)}
   .pm-eyebrow{position:relative;z-index:1;color:#fff9ce;font-family:var(--font-carving);font-style:italic;font-size:.9rem;letter-spacing:.26em;text-transform:uppercase;background:#ffffff1a;border:1px solid #fff9ce42;display:inline-block;padding:.5rem 1.2rem;border-radius:999px;backdrop-filter:blur(2px)}
-  .pm-hero h2{position:relative;z-index:1;font-family:var(--font-carving);font-weight:600;font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.16;margin-top:1.2rem;max-width:50rem;margin-inline:auto;color:#ffffff;text-shadow:0 2px 20px #00000055,0 1px 3px #00000077}
-  .pm-hero h2 em{color:#fff9ce;font-style:italic;font-weight:500;text-shadow:0 2px 18px #fff9ce40}
+  .pm-hero h2{position:relative;z-index:1;font-family:var(--font-display);font-weight:400;font-size:clamp(1.9rem,4.2vw,3.2rem);line-height:1.16;margin-top:1.2rem;max-width:50rem;margin-inline:auto;color:#ffffff;text-shadow:0 2px 20px #00000055,0 1px 3px #00000077}
+  .pm-hero h2 em{font-family:var(--font-carving);color:#fff9ce;font-style:italic;font-weight:500;text-shadow:0 2px 18px #fff9ce40}
   .pm-rule{position:relative;z-index:1;width:4rem;height:2px;background:#fff9ce;margin:1.3rem auto 0;box-shadow:0 0 14px #fff9ce66}
   .pm-lot{position:relative;z-index:1;margin-top:1rem;font-family:var(--font-carving);font-size:.82rem;letter-spacing:.3em;text-transform:uppercase;color:#ffffffc9}
   .pm-body{max-width:66rem;margin-inline:auto;padding:2.5rem 1.25rem 4.5rem}
   .pm-section-head{text-align:center;margin-bottom:2rem}
   .pm-section-head .kicker{font-family:var(--font-carving);font-style:italic;color:var(--color-brand-gold-text);font-size:.9rem}
-  .pm-section-head h3{font-family:var(--font-carving);font-weight:500;font-size:clamp(1.6rem,3vw,2.3rem);color:var(--color-brand-ink);margin-top:.3rem}
+  .pm-section-head h3{font-family:var(--font-display);font-weight:400;font-size:clamp(1.6rem,3vw,2.3rem);color:var(--color-brand-ink);margin-top:.3rem;letter-spacing:.03em}
   .pm-section-head h3:after{content:"";display:block;width:2.6rem;height:1px;background:var(--color-brand-gold);margin:.7rem auto 0}
   .pm-grid{display:grid;grid-template-columns:1fr;gap:2rem;align-items:center}
   @media(min-width:820px){.pm-grid{grid-template-columns:1.05fr .95fr;gap:3rem}}
