@@ -642,7 +642,7 @@
   pm.addEventListener('click',function(e){if(e.target===pm)bbCloseProjet()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){bbCloseProjet();lb.classList.remove('open');document.body.style.overflow=''}});
 
-  var map=L.map('map',{scrollWheelZoom:false}).setView([33.8863546,-6.3321855],17);
+  var map=L.map('map',{scrollWheelZoom:false}).setView([33.8863546,-6.3321855],14);
   L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png',{maxZoom:20,attribution:'&copy; OpenStreetMap &copy; CARTO'}).addTo(map);
   L.control.scale({imperial:false}).addTo(map);
   var pinSvg='<svg xmlns="http://www.w3.org/2000/svg" width="36" height="46" viewBox="0 0 34 44"><path d="M17 0C7.6 0 0 7.6 0 17c0 12.75 17 27 17 27s17-14.25 17-27C34 7.6 26.4 0 17 0z" fill="#d4361f" stroke="#ffffff" stroke-width="2"/><circle cx="17" cy="17" r="6.5" fill="#ffffff"/></svg>';
@@ -654,7 +654,7 @@
     '<span class="lot-desc">Résidence R+2 — Tiflet, Maroc</span>'+
     '<button type="button" onclick="bbOpenProjet()">Voir la résidence</button>'+
     '</div>',{minWidth:210,maxWidth:230,closeButton:false});
-  mk.on('click',function(){map.flyTo([33.8863546,-6.3321855],18)});
+  mk.on('click',function(){map.flyTo([33.8863546,-6.3321855],16)});
   setTimeout(function(){map.invalidateSize()},500);
 
 })();
