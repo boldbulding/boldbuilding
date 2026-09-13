@@ -62,7 +62,7 @@
   #splash{position:fixed;inset:0;z-index:100;background:var(--color-brand-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.5rem;transition:opacity .6s var(--ease-soft)}
   #splash.done{opacity:0;pointer-events:none}
   .brand-mark{display:flex;align-items:center;gap:.9rem;justify-content:center}
-  .brand-mark img{height:2.8rem;width:auto;filter:drop-shadow(0 0 14px #ffffff2b);border-radius:.5rem}
+  .brand-mark img{height:3.2rem;width:auto;filter:drop-shadow(0 0 14px #ffffff2b);border-radius:.5rem}
   .brand-mark span{font-family:var(--font-carving);color:#fff9ce;font-size:2.2rem;letter-spacing:.14em;text-transform:uppercase;animation:mph-breathe 2.6s ease-in-out infinite}
   .splash-bar{width:12rem;height:2px;background:#ffffff22;overflow:hidden;border-radius:2px}
   .splash-bar span{display:block;height:100%;width:45%;background:var(--color-brand-gold);animation:mph-loading 1.6s ease-in-out infinite}
@@ -74,8 +74,8 @@
   header.scrolled{background:rgba(47,92,80,.96);box-shadow:0 1px 0 #ffffff14}
   .header-in{display:flex;align-items:center;justify-content:space-between;gap:1rem}
   .logo{display:flex;align-items:center;gap:.6rem;color:#fff}
-  .logo .logo-icon{height:1.7rem;width:auto;flex-shrink:0;filter:drop-shadow(0 2px 6px #00000055);border-radius:.3rem}
-  @media(max-width:480px){.logo .logo-icon{height:1.4rem}}
+  .logo .logo-icon{height:2.3rem;width:auto;flex-shrink:0;filter:drop-shadow(0 2px 6px #00000055);border-radius:.3rem}
+  @media(max-width:480px){.logo .logo-icon{height:1.9rem}}
   .logo .mark{font-family:var(--font-carving);letter-spacing:.12em;font-size:1.25rem;text-transform:uppercase;color:#ffffff}
   .logo .mark b{color:#ffffff;font-weight:400}
   .logo small{display:block;font-size:.6rem;letter-spacing:.42em;text-transform:uppercase;color:#ffffffb0;font-family:var(--font-carving);font-weight:300}
@@ -281,7 +281,7 @@
 
 <div id="splash" aria-hidden="true">
   <div class="brand-mark">
-    <img src="images/logo.png" alt="Logo Bold Building">
+    <img src="images/logo.png?v=7" alt="Logo Bold Building" class="splash-logo">
   </div>
   <div class="splash-bar"><span></span></div>
 </div>
@@ -289,7 +289,7 @@
 <header>
   <div class="container-page header-in">
     <a class="logo" href="#top" aria-label="Bold Building sarl">
-      <img class="logo-icon" src="images/logo.png" alt="Logo Bold Building">
+      <img class="logo-icon" src="images/logo.png?v=7" alt="Logo Bold Building">
     </a>
     <nav class="main">
       <a href="#top">Accueil</a>
@@ -460,7 +460,7 @@
 
 <footer>
   <div class="footer-top">
-    <img class="footer-logo-icon" src="images/logo.png" alt="Logo Bold Building">
+    <img class="footer-logo-icon" src="images/logo.png?v=7" alt="Logo Bold Building">
     <p>Un nouvel horizon pour vivre autrement</p>
   </div>
   <div class="footer-cols">
