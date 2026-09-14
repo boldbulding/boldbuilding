@@ -308,7 +308,8 @@
   .pm-specs li b{font-weight:600;color:var(--color-brand-deep);font-size:1.08rem}
   .pm-price{margin-top:2rem;display:flex;flex-direction:column;align-items:center;gap:.35rem;text-align:center;background:linear-gradient(135deg,#417e6f,#2f5c50);color:#fff;border-radius:1rem;padding:1.6rem 1.5rem;box-shadow:var(--shadow-elevated)}
   .pm-price span{font-size:.8rem;letter-spacing:.22em;text-transform:uppercase;color:#fff9ce;font-family:var(--font-carving);font-style:italic}
-  .pm-price b{font-family:var(--font-carving);font-weight:500;font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:.03em}
+  .pm-price b{font-family:var(--font-carving);font-weight:500;font-size:clamp(2rem,4.5vw,3rem);letter-spacing:.03em;line-height:1}
+  .pm-price .pm-mad{font-family:var(--font-carving);font-style:italic;font-size:.95rem;letter-spacing:.18em;color:#fff9ce;margin-top:.15rem}
   .pm-note{text-align:center;color:var(--color-muted-foreground);font-size:.88rem;font-style:italic;margin-top:.9rem;font-family:var(--font-carving)}
   @media(max-width:640px){.pm-hero{padding-top:6rem}}
 </style>
@@ -625,7 +626,7 @@
         </ul>
         <div class="pm-price">
           <span>Prix de vente</span>
-          <b>540 000.00 MAD</b>
+          <b>540 000.00</b><em class="pm-mad">MAD</em>
         </div>
         <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
       </div>
