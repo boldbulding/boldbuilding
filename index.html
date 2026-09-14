@@ -313,6 +313,8 @@
   .pm-note{text-align:center;color:var(--color-muted-foreground);font-size:.88rem;font-style:italic;margin-top:.9rem;font-family:var(--font-carving)}
   .pm-avail{display:inline-flex;align-items:center;gap:.45rem;margin:1.15rem auto 0;background:#25d3661f;border:1px solid #25d36666;color:#2c7a4b;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;padding:.52rem 1.1rem;border-radius:999px;font-family:var(--font-carving)}
   .pm-avail .dot{width:.5rem;height:.5rem;border-radius:999px;background:#25d366;box-shadow:0 0 0 3px #25d36622;flex:none}
+  .pm-sold{display:inline-flex;align-items:center;gap:.45rem;margin:1.15rem auto 0;background:#e639461f;border:1px solid #e6394666;color:#c0392b;font-weight:600;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;padding:.52rem 1.1rem;border-radius:999px;font-family:var(--font-carving)}
+  .pm-sold .dot{width:.5rem;height:.5rem;border-radius:999px;background:#e63946;box-shadow:0 0 0 3px #e6394622;flex:none}
   @media(max-width:640px){.pm-hero{padding-top:6rem}}
 </style>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
@@ -630,6 +632,7 @@
           <span>Prix de vente</span>
           <b>540 000.00</b><em class="pm-mad">MAD</em>
         </div>
+        <p class="pm-sold"><span class="dot"></span>Vendue</p>
         <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
       </div>
       <div class="pm-divider"></div>
