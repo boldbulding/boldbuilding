@@ -292,6 +292,19 @@
   .pm-hero h2 em{font-family:var(--font-carving);color:#fff9ce;font-style:italic;font-weight:500;letter-spacing:.06em}
   .pm-rule{position:relative;z-index:1;width:4rem;height:2px;background:#fff9ce;margin:1.3rem auto 0;box-shadow:0 0 14px #fff9ce66}
   .pm-lot{position:relative;z-index:1;margin-top:1rem;font-family:var(--font-carving);font-size:.9rem;letter-spacing:.3em;text-transform:uppercase;color:#ffffffc9}
+  .pm-tabs{position:sticky;top:0;z-index:4;display:flex;gap:.5rem;justify-content:center;flex-wrap:wrap;background:#fffdf5f7;backdrop-filter:blur(6px);border-bottom:1px solid var(--color-border);padding:.8rem 1.25rem;margin:0 -1.25rem 2.2rem}
+  .pm-tab{display:inline-flex;align-items:center;gap:.55rem;font-family:var(--font-carving);font-size:.88rem;letter-spacing:.05em;color:var(--color-foreground);background:var(--color-surface);border:1px solid var(--color-border);border-radius:999px;padding:.5rem 1.05rem;cursor:pointer;transition:background .25s,border-color .25s,color .25s,box-shadow .25s}
+  .pm-tab b{font-weight:600}
+  .pm-tab span{color:var(--color-muted-foreground);font-size:.74rem;letter-spacing:.12em;text-transform:uppercase}
+  .pm-tab .pm-tab-dot{width:.5rem;height:.5rem;border-radius:999px;background:#25d366;flex:none}
+  .pm-tab .pm-tab-dot.is-sold{background:#e63946}
+  .pm-tab:hover{border-color:var(--color-brand-deep);color:var(--color-brand-deep)}
+  .pm-tab.is-active{background:linear-gradient(135deg,#417E6F,#2F5C50);color:#fff;border-color:transparent;box-shadow:0 10px 24px -12px #00000066}
+  .pm-tab.is-active span{color:#fff9ce}
+  .pm-panel{display:none}
+  .pm-panel.is-active{display:block;animation:pmFade .45s var(--ease-soft)}
+  @keyframes pmFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @media(max-width:640px){.pm-tabs{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-inline:1rem}.pm-tab{flex:none}}
   .pm-body{max-width:66rem;margin-inline:auto;padding:2.5rem 1.25rem 4.5rem}
   .pm-section-head{text-align:center;margin-bottom:2rem}
   .pm-section-head .kicker{font-family:var(--font-carving);font-style:italic;color:var(--color-brand-gold-text);font-size:.95rem}
@@ -615,6 +628,13 @@
         </div>
       </div>
       <div class="pm-divider"></div>
+      <div class="pm-tabs" role="tablist" aria-label="Choisir un appartement">
+        <button class="pm-tab is-active" type="button" data-panel="1" role="tab" aria-selected="true"><b>N°1</b><span>RDC</span><i class="pm-tab-dot is-sold"></i></button>
+        <button class="pm-tab" type="button" data-panel="2" role="tab" aria-selected="false"><b>N°2</b><span>Étage 1</span><i class="pm-tab-dot"></i></button>
+        <button class="pm-tab" type="button" data-panel="3" role="tab" aria-selected="false"><b>N°3</b><span>Duplex</span><i class="pm-tab-dot"></i></button>
+        <button class="pm-tab" type="button" data-panel="4" role="tab" aria-selected="false"><b>N°4</b><span>Étage 2</span><i class="pm-tab-dot"></i></button>
+      </div>
+      <section class="pm-panel is-active" id="pmPanel1" data-panel="1">
       <div class="pm-section-head">
         <p class="kicker">Appartement N°1 — RDC</p>
         <h3>Un cadre de vie élégant et parfaitement équilibré</h3>
@@ -648,7 +668,8 @@
         <p class="pm-sold"><span class="dot"></span>Vendue</p>
         <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
       </div>
-      <div class="pm-divider"></div>
+      </section>
+      <section class="pm-panel" id="pmPanel2" data-panel="2">
       <div class="pm-section-head">
         <p class="kicker">Appartement N°2 — Etage 1</p>
         <h3>Un équilibre idéal entre confort et lumière</h3>
@@ -682,7 +703,8 @@
         <p class="pm-avail"><span class="dot"></span>Disponible</p>
         <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
       </div>
-      <div class="pm-divider"></div>
+      </section>
+      <section class="pm-panel" id="pmPanel3" data-panel="3">
       <div class="pm-section-head">
         <p class="kicker">Appartement N°3 — Etage ½ · Duplex</p>
         <h3>Deux niveaux, deux univers</h3>
@@ -732,7 +754,8 @@
         <p class="pm-avail"><span class="dot"></span>Disponible</p>
         <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
       </div>
-      <div class="pm-divider"></div>
+      </section>
+      <section class="pm-panel" id="pmPanel4" data-panel="4">
       <div class="pm-section-head">
         <p class="kicker">Appartement N°4 — Etage 2</p>
         <h3>Un cadre de vie élégant et parfaitement équilibré</h3>
@@ -766,6 +789,7 @@
         <p class="pm-avail"><span class="dot"></span>Disponible</p>
         <p class="pm-note">Honoraires de commercialisation offerts par Bold Building sarl</p>
       </div>
+      </section>
     </div>
   </div>
 </div>
@@ -809,6 +833,17 @@
   pmClose.addEventListener('click',bbCloseProjet);
   var pmLogo=document.getElementById('pmLogo');
   if(pmLogo){pmLogo.addEventListener('click',function(e){e.preventDefault();bbCloseProjet();if(history.replaceState){history.replaceState(null,'','#top')}window.scrollTo({top:0,behavior:'smooth'})})}
+  var pmWin=document.querySelector('.pm-window'),pmTabList=[].slice.call(document.querySelectorAll('.pm-tab'));
+  pmTabList.forEach(function(tab){
+    tab.addEventListener('click',function(){
+      var id=tab.getAttribute('data-panel');
+      pmTabList.forEach(function(o){o.classList.remove('is-active');o.setAttribute('aria-selected','false')});
+      tab.classList.add('is-active');tab.setAttribute('aria-selected','true');
+      [].forEach.call(document.querySelectorAll('.pm-panel'),function(panel){panel.classList.toggle('is-active',panel.getAttribute('data-panel')===id)});
+      var panel=document.getElementById('pmPanel'+id);
+      if(pmWin&&panel){var delta=panel.getBoundingClientRect().top-pmWin.getBoundingClientRect().top-76;if(delta>0){pmWin.scrollBy({top:delta,behavior:'smooth'})}}
+    });
+  });
   pm.addEventListener('click',function(e){if(e.target===pm)bbCloseProjet()});
   document.addEventListener('keydown',function(e){if(e.key==='Escape'){bbCloseProjet();lb.classList.remove('open');document.body.style.overflow=''}});
 
