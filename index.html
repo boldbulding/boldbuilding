@@ -79,7 +79,7 @@
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth;font-size:17px}
-  body{background:var(--color-bg);color:var(--color-foreground);font-family:var(--font-carving);min-height:100%;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+  body{background:var(--color-bg);color:var(--color-foreground);font-family:var(--font-carving);line-height:1.5;min-height:100%;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
@@ -97,7 +97,7 @@
   .facade-title:after{background:#FFF9CE}
   .facade-card{max-width:56rem;margin:2rem auto 0;background:#fffdf5;border-radius:1.25rem;box-shadow:var(--shadow-elevated);padding:clamp(1.5rem,3vw,2.5rem)}
   .facade-text{font-family:var(--font-carving);font-weight:400;letter-spacing:.02em}
-  .facade-text p{color:var(--color-brand-ink);font-size:1.15rem;line-height:1.85;margin-bottom:1.1rem;text-align:justify}
+  .facade-text p{color:var(--color-brand-ink);font-size:1.15rem;line-height:1.5;margin-bottom:1.1rem;text-align:justify}
   .facade-text p:last-child{margin-bottom:0}
   .facade-text b{font-weight:600;color:var(--color-brand-deep)}
 
@@ -152,7 +152,7 @@
   @media(min-width:768px){.hero .eyebrow{font-size:.875rem}}
   .hero h1{font-family:var(--font-display);font-size:clamp(2.4rem,6vw,4.5rem);font-weight:400;margin-top:.75rem;line-height:1.12;letter-spacing:.05em;text-shadow:0 2px 18px #00000088}
   .hero p.tag{max-width:34rem;margin:1.1rem auto 0;font-family:var(--font-carving);font-style:italic;font-size:1.25rem;color:#ffffffc9}
-  .hero p.hero-sub{max-width:38rem;margin:.8rem auto 0;font-size:1.05rem;line-height:1.6;color:#ffffffd4}
+  .hero p.hero-sub{max-width:38rem;margin:.8rem auto 0;font-size:1.05rem;line-height:1.4;color:#ffffffd4}
   .hero .btn-wa{display:inline-flex;align-items:center;gap:.55rem;background:#25D366;color:#fff;font-size:.9rem;font-weight:600;padding:.85rem 1.6rem;border-radius:999px;transition:background .3s,transform .3s;box-shadow:0 10px 30px -8px #00000077}
   .hero .btn-wa:hover{background:#1ebd57;transform:translateY(-2px)}
   .hero .ctas{display:flex;gap:.9rem;justify-content:center;flex-wrap:wrap;margin-top:1.8rem}
@@ -169,7 +169,7 @@
   @media(min-width:768px){.overview-grid{grid-template-columns:1.1fr .9fr;gap:3.5rem}}
   .overview-text .eyebrow{font-size:1rem}
   .overview-text h2{font-family:var(--font-display);font-size:clamp(1.8rem,3.4vw,2.5rem);font-weight:400;color:var(--color-brand-deep);margin-top:.25rem;line-height:1.12;letter-spacing:.02em}
-  .overview-text p{color:var(--color-muted-foreground);line-height:1.75;text-align:justify;margin-top:1.1rem;font-size:1.08rem}
+  .overview-text p{color:var(--color-muted-foreground);line-height:1.5;text-align:justify;margin-top:1.1rem;font-size:1.08rem}
   .overview-media{position:relative;cursor:pointer}
   .overview-media img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:.35rem;box-shadow:var(--shadow-card);transition:transform .6s var(--ease-soft)}
   .overview-media:hover img{transform:scale(1.02)}
@@ -225,7 +225,7 @@
   .f-col a:hover{color:var(--color-brand-gold-soft)}
   .f-col a .dash{height:1px;width:.75rem;background:var(--color-brand-gold);transition:width .3s}
   .f-col a:hover .dash{width:1.5rem}
-  .f-col p{font-size:.85rem;color:#ffffff8c;line-height:1.7;margin-top:1rem}
+  .f-col p{font-size:.85rem;color:#ffffff8c;line-height:1.5;margin-top:1rem}
   .socials{display:flex;gap:.7rem;margin-top:1rem}
   .socials a{width:2.75rem;height:2.75rem;border-radius:999px;background:#ffffff08;border:1px solid #ffffff22;display:grid;place-items:center;color:#fff;transition:all .3s var(--ease-soft)}
   .socials a:hover{background:var(--color-brand-gold);border-color:var(--color-brand-gold);transform:translateY(-3px)}
@@ -320,7 +320,7 @@
   .pm-media{position:relative;cursor:pointer}
   .pm-media img{width:100%;border-radius:.6rem;box-shadow:var(--shadow-elevated);display:block}
   .pm-media .zoom-badge{position:absolute;right:.85rem;bottom:.85rem;display:inline-flex;align-items:center;gap:.4rem;background:rgba(31,50,42,.86);color:#fff;font-size:.88rem;padding:.45rem .8rem;border-radius:999px;backdrop-filter:blur(4px)}
-  .pm-text p{color:var(--color-muted-foreground);line-height:1.8;text-align:justify;margin-top:1rem;font-size:1.08rem}
+  .pm-text p{color:var(--color-muted-foreground);line-height:1.5;text-align:justify;margin-top:1rem;font-size:1.08rem}
   .pm-text p b{color:var(--color-brand-deep);font-weight:600}
   .pm-text p:first-of-type{margin-top:0}
   .pm-divider{height:1px;background:var(--color-border);margin:3rem auto;max-width:40rem}
@@ -645,10 +645,10 @@
         <h3>Un cadre de vie élégant et parfaitement équilibré</h3>
       </div>
       <div class="pm-app">
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.5">
           L'Appartement N°1 offre un cadre de vie élégant et parfaitement équilibré, pensé pour allier confort et intimité. Il se compose d'un salon lumineux, d'un séjour accueillant, d'une cuisine et de trois chambres, dont une suite parentale avec dressing et salle de bain privative.
         </p>
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.5">
           L'appartement dispose au total de deux salles de bain, dont une intégrée à la suite parentale.
         </p>
         <figure class="pm-media">
@@ -680,10 +680,10 @@
         <h3>Un équilibre idéal entre confort et lumière</h3>
       </div>
       <div class="pm-app">
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.5">
           L'Appartement N°2 offre un cadre de vie élégant et parfaitement équilibré, pensé pour allier confort et intimité. Il se compose d'un salon lumineux et accueillant, d'une cuisine avec accès au balcon et de deux chambres à coucher, dont une bénéficie d'un accès au balcon, apportant lumière et ouverture sur l'extérieur.
         </p>
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.5">
           L'appartement dispose au total de deux salles de bain.
         </p>
         <figure class="pm-media">
@@ -715,16 +715,16 @@
         <h3>Deux niveaux, deux univers</h3>
       </div>
       <div class="pm-app">
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.5">
           L'Appartement N°3 est un duplex élégant et fonctionnel, pensé pour offrir une séparation harmonieuse entre les espaces de vie et les espaces privés.
         </p>
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.5">
           Au premier niveau, il propose un salon et un séjour lumineux et chaleureux, une cuisine fonctionnelle accompagnée de sa buanderie, ainsi qu'une salle de bain destinée aux invités, idéale pour l'espace de réception.
         </p>
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.5">
           Le deuxième niveau, entièrement consacré à l'espace nuit, comprend deux chambres à coucher, un hall de distribution et une salle de bain. L'une des chambres bénéficie également d'un accès direct au balcon, apportant lumière naturelle et ouverture sur l'extérieur.
         </p>
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.5">
           Un duplex confortable et bien agencé, conçu pour conjuguer convivialité, intimité et qualité de vie.
         </p>
         <div class="pm-photos">
@@ -766,10 +766,10 @@
         <h3>Un cadre de vie élégant et parfaitement équilibré</h3>
       </div>
       <div class="pm-app">
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:0 auto;color:var(--color-muted-foreground);line-height:1.5">
           L'Appartement N°4 offre un cadre de vie élégant et parfaitement équilibré, pensé pour allier confort et intimité. Il se compose d'un salon lumineux et accueillant, d'une cuisine avec accès au balcon et de deux chambres à coucher, dont une bénéficie d'un accès au balcon, apportant lumière et ouverture sur l'extérieur.
         </p>
-        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.8">
+        <p class="pm-text" style="text-align:center;max-width:44rem;margin:.8rem auto 0;color:var(--color-muted-foreground);line-height:1.5">
           L'appartement dispose au total de deux salles de bain.
         </p>
         <figure class="pm-media">
